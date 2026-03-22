@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ef098abe6638a4abd50d5f7ef74f8a, type: 3}
+  m_Name: Lens_Technologic
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.LensDefinition
+  lensType: 1
+  displayName: Technologic
+  lensColor: {r: 0.25, g: 0.7, b: 0.9, a: 1}
+  lensIcon: {fileID: 21300000, guid: 6ed9d02a83e649a2ae46429b2a67df81, type: 3}
+  lensPostProcessMaterial: {fileID: 0}
+  ambientNote: {fileID: 8300000, guid: 82a9ba94164a43b2b1338ca81f3995a8, type: 3}
+  unlockFlavourText: Machines, circuits, science. Sacred objects become schematics.

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: d0101e9fc9ba7b943a73562789eaa87d
+  - enabled: 1
+    path: Assets/Scenes/Frame2100.unity
+    guid: 6634d5b218a10f04c99328d3507676c1
+  - enabled: 1
+    path: Assets/Scenes/ComicReader.unity
+    guid: 37185fffb0fc37543bc23ad735199d29
+  - enabled: 1
+    path: Assets/Scenes/IssueComplete.unity
+    guid: e4232316e3dc2e6478beb589f6278e03
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

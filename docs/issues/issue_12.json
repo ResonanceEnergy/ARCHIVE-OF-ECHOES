@@ -1,0 +1,705 @@
+{
+  "issueId": "issue_12",
+  "issueNumber": 12,
+  "title": "The Last Panel",
+  "arc": "T5-E: Capstone Placement · Circuit Closes · Three Endings · Player Ejects · 2100 Returns",
+  "tone": "Ceremony → silence → completion → resonance → release",
+  "pageCount": 8,
+  "primaryLenses": ["Mythic", "Technologic", "Symbolic", "Political", "Spiritual"],
+  "prerequisiteIssueIds": ["issue_11"],
+  "unlocksLenses": [],
+  "unlocksKeys": ["RESONANCE"],
+  "newMechanics": [
+    "Capstone Lock (5th Ark ability)",
+    "Ending branch via active lens at placement",
+    "Player ejection sequence",
+    "2100 return epilogue"
+  ],
+  "ambientTrack": "drone_spiritual",
+  "pages": [
+
+    {
+      "pageId": "page_12_1",
+      "pageTitle": "The Apex Chamber",
+      "layout": "Strip",
+      "entryTransition": "PageTurn",
+      "isFullBleed": false,
+      "panels": [
+        {
+          "panelId": "p12_p1_constellation_map",
+          "panelType": "Static",
+          "captionText": "The last thread. The thread everything else was placed around.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p1_apex_shaft",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p1_capstone",
+          "panelType": "Static",
+          "captionText": "It was here the whole time. Waiting for the circuit below it to be ready.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [
+            {
+              "lens": "Technologic",
+              "altCaption": "Triangular pyramid — apex angle 51.8°. Base geometry matches receiver slot geometry. Composition: unknown white-gold stone. Mass: incongruent with volume.",
+              "revealsHiddenContent": true
+            },
+            {
+              "lens": "Spiritual",
+              "altCaption": "The capstone radiates. Every circuit line in the structure points here. It is not waiting. It is ready. It has always been ready.",
+              "revealsHiddenContent": true
+            }
+          ],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p1_pickup",
+          "panelType": "Interact",
+          "captionText": "The last ability. The final placement.",
+          "gutterText": "",
+          "archivistNote": "I've been here before, in theory. Now I'm here in fact. The difference is everything.",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": {
+            "puzzleType": "Interact",
+            "stabilizeDuration": 0.0,
+            "reorderPanelCount": 0,
+            "isOptional": false,
+            "interactHint": "Tap to pick up the capstone. Capstone Lock ability activates."
+          },
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_2",
+      "pageTitle": "The Last Descent",
+      "layout": "ThreePanel",
+      "entryTransition": "PageTurn",
+      "isFullBleed": false,
+      "panels": [
+        {
+          "panelId": "p12_p2_descent",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p2_chamber_view",
+          "panelType": "Static",
+          "captionText": "From below: everything the structure was built to frame.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [
+            {
+              "lens": "Spiritual",
+              "altCaption": "The circuit completes from here. One line rises. Waits at the apex. Waits for the capstone.",
+              "revealsHiddenContent": true
+            }
+          ],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p2_final_stabilize",
+          "panelType": "Stabilize",
+          "captionText": "",
+          "gutterText": "They were always going to lose. The archive is not theirs.",
+          "archivistNote": "",
+          "startsCorrupted": true,
+          "corruptionLevel": 0.6,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": {
+            "puzzleType": "Stabilize",
+            "stabilizeDuration": 2.0,
+            "reorderPanelCount": 0,
+            "isOptional": false,
+            "interactHint": "Long-press to stabilize. Final attempt."
+          },
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_3",
+      "pageTitle": "The Choice of Lens",
+      "layout": "FullBleed",
+      "entryTransition": "LensSwitch",
+      "isFullBleed": true,
+      "panels": [
+        {
+          "panelId": "p12_p3_lens_choice",
+          "panelType": "Interact",
+          "captionText": "Before you place the capstone, consider how you understand what you've read.\nYour lens doesn't change what the Archive holds.\nIt changes what the placement means to you.\nChoose a lens. Then place.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": true,
+          "revealsKeys": [],
+          "lensVariants": [
+            {
+              "lens": "Mythic",
+              "altCaption": "Divine completion — myth made real. The ancient pattern fulfilled.",
+              "revealsHiddenContent": false
+            },
+            {
+              "lens": "Technologic",
+              "altCaption": "Engineering completion — the machine functions. The circuit closes.",
+              "revealsHiddenContent": false
+            },
+            {
+              "lens": "Symbolic",
+              "altCaption": "Meaning completion — the symbol becomes the thing it always pointed at.",
+              "revealsHiddenContent": false
+            },
+            {
+              "lens": "Political",
+              "altCaption": "Historical completion — the record restored. The erasure undone.",
+              "revealsHiddenContent": false
+            },
+            {
+              "lens": "Spiritual",
+              "altCaption": "Transcendent completion — something beyond description resolves.",
+              "revealsHiddenContent": false
+            }
+          ],
+          "puzzleConfig": {
+            "puzzleType": "Interact",
+            "stabilizeDuration": 0.0,
+            "reorderPanelCount": 0,
+            "isOptional": false,
+            "interactHint": "Open lens radial. Select your lens. Proceed to placement."
+          },
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_4",
+      "pageTitle": "E4 Capstone Placement",
+      "layout": "FullBleed",
+      "entryTransition": "PanelResolve",
+      "isFullBleed": true,
+      "panels": [
+        {
+          "panelId": "p12_p4_capstone_placement",
+          "panelType": "Interact",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [
+            {
+              "lens": "Technologic",
+              "altCaption": "Orientation markers on capstone edges — align the notched edge to the north receptor.",
+              "revealsHiddenContent": true
+            },
+            {
+              "lens": "Spiritual",
+              "altCaption": "The Djed circuit lines converge on the north-facing edge. One correct orientation. This is it.",
+              "revealsHiddenContent": true
+            }
+          ],
+          "puzzleConfig": {
+            "puzzleType": "Interact",
+            "stabilizeDuration": 0.0,
+            "reorderPanelCount": 0,
+            "isOptional": false,
+            "interactHint": "Step 1: Rotate capstone to correct orientation (4 positions; 1 correct). Step 2: Two-finger vertical drag downward — lower the capstone into the slot. Maintain parallel grip. The capstone descends. The slot receives it. The click.",
+            "puzzleSubtype": "E4_CapstonePlacement",
+            "requiresAbility": "CapstoneLock"
+          },
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_5",
+      "pageTitle": "The Circuit Closes",
+      "layout": "FullBleed",
+      "entryTransition": "PanelResolve",
+      "isFullBleed": true,
+      "isCinematic": true,
+      "cinematicAutoPlay": true,
+      "cinematicCanSkip": true,
+      "panels": [
+        {
+          "panelId": "p12_p5_capstone_seated",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "cinematicDurationSeconds": 1.5,
+          "cinematicNote": "The capstone seated. Flush with the pyramid apex. The last triangular gap: sealed."
+        },
+        {
+          "panelId": "p12_p5_circuit_descends",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "cinematicDurationSeconds": 2.0,
+          "cinematicNote": "Spiritual Lens permanently active: circuit line descends through shaft → Djed → King's Chamber coffer → Ark. Full visible path."
+        },
+        {
+          "panelId": "p12_p5_ark_blazes",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "cinematicDurationSeconds": 3.0,
+          "cinematicNote": "The Ark blazes with all five light characteristics simultaneously. The winged figures' wings touch at the apex above the mercy seat. Circuit complete."
+        },
+        {
+          "panelId": "p12_p5_giza_full",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "cinematicDurationSeconds": 2.0,
+          "cinematicNote": "Full structure circuit diagram blazes — all lines lit, all chambers active, the full geometry functioning as one coherent machine. Exterior: warm pulse from entire structure."
+        },
+        {
+          "panelId": "p12_p5_silence",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "The Djed, steady at 4 bars. Unwavering.",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "cinematicDurationSeconds": 1.0,
+          "cinematicNote": "Silence. The structure settles. Still. Stable.",
+          "audioNote": "Full-chord resolution: all five lens root notes simultaneously. Held 4 seconds. Then silence.",
+          "hapticNote": "Long rising pulse → full intensity → full stop. Then nothing."
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_6",
+      "pageTitle": "The Ejection",
+      "layout": "ThreePanel",
+      "entryTransition": "PanelResolve",
+      "isFullBleed": false,
+      "isBranchPage": true,
+      "branchNote": "Panel content is lens-dependent. Active lens at capstone placement determines which ending variant renders. All three variants share the same pageId and three-panel layout.",
+      "panels": [
+        {
+          "panelId": "p12_p6_ending_a_exterior",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "Record Final — Stability. The thing most worth protecting was protected. This is enough.",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "LockedStability",
+          "activeLenses": ["Mythic", "Political"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_a_reader",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "LockedStability",
+          "activeLenses": ["Mythic", "Political"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_a_caption",
+          "panelType": "Static",
+          "captionText": "You restored the archive. The pattern holds. The knowledge survived. The structure endures.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "LockedStability",
+          "activeLenses": ["Mythic", "Political"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_b_exterior",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "Record Final — Resonance. The completed circuit transmits. I don't know who receives it. I believe the right ones will.",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "ResonantHarmony",
+          "activeLenses": ["Symbolic", "Spiritual"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_b_world",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "ResonantHarmony",
+          "activeLenses": ["Symbolic", "Spiritual"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_b_caption",
+          "panelType": "Static",
+          "captionText": "You completed the circuit. The frequency reached the world. Something in everyone that had been waiting for a long time became less quiet.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "ResonantHarmony",
+          "activeLenses": ["Symbolic", "Spiritual"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_c_capstone_shift",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "The archive doesn't end. It goes underground. It comes up somewhere else. Someone else will find it. You made sure of that.",
+          "archivistNote": "Record Final — The Gutter Path. I don't know if this is the right outcome. I know it's an honest one.",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "GutterPath",
+          "activeLenses": ["Technologic"],
+          "gutterEntitySpeaks": true,
+          "gutterEntityIsOutsidePanels": true,
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_c_gutter_speaks",
+          "panelType": "Gutter",
+          "captionText": "",
+          "gutterText": "The archive doesn't end. It goes underground. It comes up somewhere else. Someone else will find it. You made sure of that.",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "GutterPath",
+          "activeLenses": ["Technologic"],
+          "gutterEntitySpeaks": true,
+          "gutterEntityIsOutsidePanels": true,
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p6_ending_c_caption",
+          "panelType": "Static",
+          "captionText": "You placed the capstone. The capstone accepted it. The gutter will carry the rest.",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "endingVariant": "GutterPath",
+          "activeLenses": ["Technologic"],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_7",
+      "pageTitle": "2100 Returns",
+      "layout": "ThreePanel",
+      "entryTransition": "PageTurn",
+      "isFullBleed": false,
+      "panels": [
+        {
+          "panelId": "p12_p7_2100_return",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p7_comic_closeup",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": []
+        },
+        {
+          "panelId": "p12_p7_classification_change",
+          "panelType": "Interact",
+          "captionText": "CLASSIFICATION: ESSENTIAL RECORD. DO NOT DEMOLISH.",
+          "gutterText": "Whether what happened inside was real, remembered, or invented — the Archive thinks it happened. That's what archives are for.",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "revealsKeys": [
+            {
+              "keyId": "RESONANCE",
+              "conditionNote": "Always unlocked at this panel if not already collected via Issue 03 Atlantis Deep branch"
+            }
+          ],
+          "lensVariants": [],
+          "puzzleConfig": {
+            "puzzleType": "Interact",
+            "stabilizeDuration": 0.0,
+            "reorderPanelCount": 0,
+            "isOptional": false,
+            "interactHint": "Tap the terminal. Change the classification. Final interaction of the game."
+          },
+          "branchOptions": []
+        }
+      ]
+    },
+
+    {
+      "pageId": "page_12_8",
+      "pageTitle": "The Last Page",
+      "layout": "FullBleed",
+      "entryTransition": "PageTurn",
+      "isFullBleed": true,
+      "panels": [
+        {
+          "panelId": "p12_p8_archive_exterior",
+          "panelType": "Static",
+          "captionText": "",
+          "gutterText": "Completion does not mean certainty. It means the story can continue.",
+          "gutterTextAuthor": "Archivist",
+          "gutterTextSecondary": "I'll be in the next one.",
+          "gutterTextSecondaryAuthor": "Gutter Entity",
+          "archivistNote": "",
+          "startsCorrupted": false,
+          "corruptionLevel": 0.0,
+          "requiresDualLens": false,
+          "requiredLensA": null,
+          "requiredLensB": null,
+          "isBranchPoint": false,
+          "isLastPanel": true,
+          "revealsKeys": [],
+          "lensVariants": [],
+          "puzzleConfig": null,
+          "branchOptions": [],
+          "postGameNote": "After this panel completes: all 12 issues unlocked for replay; all missed Gutter Doors highlighted; Archive Notebook shows complete detective board; Constellation Map at full resolution; share prompt activates"
+        }
+      ]
+    }
+
+  ],
+
+  "designNotes": {
+    "endingDesign": "The lens-dependent ending is the most important design decision in Issue 12. Players choose an ending by choosing a lens — which is how they've been making meaning throughout the entire game. No menu, no dialogue tree, no explicit ending selector. The lens is the choice.",
+    "allEndingsValid": "The three ending variants are all valid and complete. Locked Stability is not a bad ending. The Gutter Path is not a secret ending — it is available to careful players who engaged with the Gutter throughout.",
+    "finalCaption": "Completion does not mean certainty. It means the story can continue. — Applies equally to all three endings, to the player's experience, and to the fictional universe. The thesis statement of the game.",
+    "demolitionStatus": "Demolition equipment parked — the game does not confirm the demolition is cancelled. The story can continue. In a future season or never.",
+    "gutterEntityFinalLine": "Season 2 tease. Not required to be built. Honest to the character.",
+    "overallTone": "The longest pause in any game the player has ever played. Ceremony. Silence. The payoff for every puzzle solved, every panel restored, every glyph recovered. It should feel sacred without being solemn. Complete without being closed."
+  }
+}

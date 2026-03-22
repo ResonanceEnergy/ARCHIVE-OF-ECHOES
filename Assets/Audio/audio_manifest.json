@@ -1,0 +1,17 @@
+{
+  "sfx_page_flip": "Assets/Audio/SFX/sfx_page_flip.wav",
+  "drone_mythic": "Assets/Audio/Drones/drone_mythic.wav",
+  "drone_technologic": "Assets/Audio/Drones/drone_technologic.wav",
+  "drone_symbolic": "Assets/Audio/Drones/drone_symbolic.wav",
+  "drone_political": "Assets/Audio/Drones/drone_political.wav",
+  "drone_spiritual": "Assets/Audio/Drones/drone_spiritual.wav",
+  "motif_placeholder": "Assets/Audio/Motifs/motif_placeholder.wav",
+  "sfx_panel_restored": "Assets/Audio/SFX/sfx_panel_restored.wav",
+  "sfx_lens_unlock": "Assets/Audio/SFX/sfx_lens_unlock.wav",
+  "sfx_corruption_flash": "Assets/Audio/SFX/sfx_corruption_flash.wav",
+  "sfx_gutter_entity": "Assets/Audio/SFX/sfx_gutter_entity.wav",
+  "sfx_knowledge_key_collected": "Assets/Audio/SFX/sfx_knowledge_key_collected.wav",
+  "sfx_t5_unlock": "Assets/Audio/SFX/sfx_t5_unlock.wav",
+  "sfx_djed_bar_activated": "Assets/Audio/SFX/sfx_djed_bar_activated.wav",
+  "sfx_circuit_close": "Assets/Audio/SFX/sfx_circuit_close.wav"
+}
