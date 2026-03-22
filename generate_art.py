@@ -47,26 +47,36 @@ REQUEST_DELAY = 2.5             # seconds between requests (respect rate limits)
 
 # Shared comic-panel look: ink + paper texture, selective neon glow
 _PANEL = (
-    "high contrast ink comic panel illustration, paper grain texture, "
-    "deep dramatic shadows, selective neon digital glow accents, "
-    "neo-noir mystic aesthetic, Anunnaki speculative mythology, "
-    "detailed linework, monochromatic with selective gold and teal highlights, "
-    "moody atmospheric lighting, no text, no word balloons, no panel borders"
+    "highly detailed semi-realistic digital comic book illustration, "
+    "painterly graphic novel style with bold clean lines and dramatic cinematic lighting, "
+    "strong warm golden accent highlights from torchlight, high contrast and sharp details, "
+    "expressive face with dramatic eyes, ornate ancient Egyptian regalia with realistic linen robes, "
+    "leather straps, gold jewelry, lapis lazuli inlays and fabric textures, "
+    "dark ancient temple interior background with carved hieroglyph walls and mystical glowing particles, "
+    "Anunnaki speculative mythology, premium comic book game art style, "
+    "no text, no word balloons, no panel borders"
 )
 
-# Icon style: flat, circular, occult symbol
+# Icon style: semi-realistic Egyptian occult symbol
 _ICON = (
-    "flat round icon, thick ink outline, glowing center symbol, "
-    "very dark background, single occult-tech symbolic image, "
-    "no text, no letters, clean graphic design"
+    "highly detailed semi-realistic digital illustration, painterly graphic novel style, "
+    "single ancient Egyptian occult symbol centered on very dark temple background, "
+    "intense glowing golden and turquoise magical energy, lapis lazuli inlays, "
+    "carved hieroglyph stone texture, mystical glowing particles, "
+    "premium comic book game art style, no text, no letters"
 )
 
-# Cover style: dramatic portrait comic cover
+# Cover style: semi-realistic Egyptian game cover art
 _COVER = (
-    "comic book cover art, portrait orientation, ink-wash illustration, "
-    "dramatic cinematic composition, Anunnaki speculative mythology, "
-    "mystic serious tone, deep shadow with gold and teal digital highlights, "
-    "no title text, no speech bubbles"
+    "highly detailed semi-realistic digital comic book illustration, portrait orientation, "
+    "painterly graphic novel style with bold clean lines and dramatic cinematic lighting, "
+    "ancient Egyptian Anunnaki mythology, dynamic commanding pose, "
+    "intense glowing golden and turquoise magical hieroglyphic tablet, "
+    "strong warm golden accent highlights from torchlight, high contrast and sharp details, "
+    "ornate ancient Egyptian regalia with realistic linen robes, leather straps, "
+    "gold jewelry, lapis lazuli inlays and fabric textures, "
+    "dark ancient temple interior with carved hieroglyph walls and mystical glowing particles, "
+    "premium comic book game art style, no title text, no speech bubbles"
 )
 
 def _p(desc: str) -> str:
@@ -751,16 +761,10 @@ def main() -> None:
                 model=IMAGE_MODEL,
                 prompt=asset["prompt"],
                 n=1,
+                response_format="b64_json",
             )
-            url       = response.data[0].url
-            b64       = response.data[0].b64_json
-            if b64:
-                import base64
-                img_bytes = base64.b64decode(b64)
-            elif url:
-                img_bytes = _download(url)
-            else:
-                raise ValueError("API returned neither url nor b64_json")
+            import base64
+            img_bytes = base64.b64decode(response.data[0].b64_json)
             out_path.write_bytes(img_bytes)
             _set_texture_import_settings(str(out_path))
             kb = len(img_bytes) // 1024
