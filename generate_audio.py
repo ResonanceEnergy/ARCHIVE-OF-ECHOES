@@ -5,10 +5,10 @@ generate_audio.py — Archive of Echoes procedural audio synthesis
 Synthesises every audio asset the game needs using Python's stdlib only
 (wave + math + struct + random).  No pip packages required.
 
-Assets produced (14 total):
+Assets produced (18 total):
   Assets/Audio/Drones/      — 5 ambient looping drone clips (one per lens)
   Assets/Audio/Motifs/      — placeholder motif clip
-  Assets/Audio/SFX/         — 9 one-shot SFX clips for AudioManager
+  Assets/Audio/SFX/         — 12 one-shot SFX clips for AudioManager
 
 Usage:
     python generate_audio.py                      # generate all missing
@@ -371,6 +371,86 @@ def _gen_circuit_close(duration: float = 0.65) -> list[float]:
     return samples
 
 
+# ── Phase 5 SFX ───────────────────────────────────────────────────────────────
+
+def _gen_paper_rustle(duration: float = 0.55) -> list[float]:
+    """Foley paper-crinkle: slow noise burst with soft low-frequency body.
+    Richer and slower than pageFlip — sounds like a hand pressing a page flat."""
+    n   = int(duration * SR)
+    env = _adsr(n, 0.03, 0.10, 0.45, 0.40)
+    rng = random.Random(0xC0FF_EE00)
+    samples = []
+    for i in range(n):
+        t = i / SR
+        # White noise (broad paper hiss)
+        noise = (rng.random() * 2.0 - 1.0) * 0.55
+        # Low-frequency papery body softens the noise
+        body  = 0.14 * _sine(280.0, t) + 0.08 * _sine(560.0, t) + 0.05 * _sine(140.0, t)
+        # Brief mid-frequency crinkle transient at the crinkle onset
+        crinkle = (rng.random() * 2.0 - 1.0) * 0.22 * math.exp(-14.0 * abs(t - 0.07))
+        s = (noise + body + crinkle) * env[i]
+        samples.append(s)
+    return samples
+
+
+def _gen_capstone_placed(duration: float = 2.1) -> list[float]:
+    """Stone-on-stone seating impact: low thud followed by long resonant ring.
+    Used for the E4 final capstone placement in Issue 12."""
+    n = int(duration * SR)
+    samples = []
+    for i in range(n):
+        t = i / SR
+        # Impact thud — deep low-frequency sine transient (A1 55 Hz)
+        thud  = 0.70 * _sine(55.0,  t) * math.exp(-18.0 * t)
+        thud += 0.35 * _sine(110.0, t) * math.exp(-22.0 * t)
+        # Resonant ring — stone surface vibration (A3 220 Hz + partials)
+        ring  = 0.28 * _sine(220.0, t) * math.exp(-2.8 * t)
+        ring += 0.14 * _sine(330.0, t) * math.exp(-3.6 * t)
+        ring += 0.08 * _sine(440.0, t) * math.exp(-5.0 * t)
+        ring += 0.05 * _sine(660.0, t) * math.exp(-6.8 * t)
+        # Brief stone-surface scratch transient (very fast decay, high frequency)
+        scratch = 0.18 * _sine(4400.0, t) * math.exp(-90.0 * t)
+        # Master: instant attack, long natural exponential decay
+        s = (thud + ring + scratch) * math.exp(-1.1 * t)
+        samples.append(s)
+    return samples
+
+
+def _gen_finale_chord(duration: float = 8.0) -> list[float]:
+    """Resolution Circuit chord — all five lens root frequencies held together.
+    Roots: D2 73.4 Hz, F2 87.3 Hz, A2 110.0 Hz, C3 130.8 Hz, G3 196.0 Hz.
+    1.5 s slow attack → 4 s sustain → 2.5 s slow fade.
+    The capstone resolution that closes the Archive of Echoes narrative."""
+    n       = int(duration * SR)
+    attack  = int(1.5 * SR)
+    release = int(2.5 * SR)
+    # (root_hz, [amp per harmonic k=1..4])
+    voices  = [
+        (73.4,  [0.50, 0.22, 0.12, 0.07]),   # D2 — Political: heavy, imposing
+        (87.3,  [0.48, 0.20, 0.11, 0.06]),   # F2 — Symbolic: warm depth
+        (110.0, [0.52, 0.24, 0.13, 0.08]),   # A2 — Mythic: ancient resonance
+        (130.8, [0.46, 0.18, 0.10, 0.06]),   # C3 — Technologic: clean digital
+        (196.0, [0.50, 0.22, 0.12, 0.07]),   # G3 — Spiritual: ascending shimmer
+    ]
+    per_voice = 0.14      # per-root amplitude — sum peaks ~0.70
+    samples   = []
+    for i in range(n):
+        t = i / SR
+        if i < attack:
+            env_val = (i / attack) ** 1.6
+        elif i >= n - release:
+            env_val = ((n - i) / release) ** 1.2
+        else:
+            env_val = 1.0
+        s = 0.0
+        for root, amps in voices:
+            for k, amp in enumerate(amps, start=1):
+                s += per_voice * amp * _sine(root * k, t)
+        s *= env_val
+        samples.append(s)
+    return samples
+
+
 # ── Placeholder motif ──────────────────────────────────────────────────────────
 
 def _gen_motif_placeholder(duration: float = 1.8) -> list[float]:
@@ -525,6 +605,24 @@ def _make_catalogue() -> list[dict]:
             "path": "Assets/Audio/SFX/sfx_circuit_close.wav",
             "category": "sfx",
             "gen": _gen_circuit_close,
+        },
+        {
+            "id": "sfx_paper_rustle",
+            "path": "Assets/Audio/SFX/sfx_paper_rustle.wav",
+            "category": "sfx",
+            "gen": _gen_paper_rustle,
+        },
+        {
+            "id": "sfx_capstone_placed",
+            "path": "Assets/Audio/SFX/sfx_capstone_placed.wav",
+            "category": "sfx",
+            "gen": _gen_capstone_placed,
+        },
+        {
+            "id": "sfx_finale_chord",
+            "path": "Assets/Audio/SFX/sfx_finale_chord.wav",
+            "category": "sfx",
+            "gen": _gen_finale_chord,
         },
     ]
 

@@ -1,0 +1,34 @@
+{
+  "title": "Archive of Echoes",
+  "subtitle": "A gnostic graphic novel",
+  "version": "1.0.0",
+  "build": 1,
+  "category": "BOOKS",
+  "subcategory": "COMICS",
+  "content_rating": "9+",
+  "price_tier": 0,
+  "support_url": "https://resonanceenergy.io/support",
+  "marketing_url": "https://resonanceenergy.io/archive",
+  "privacy_policy_url": "https://resonanceenergy.io/privacy",
+  "localizations": {
+    "en-US": {
+      "name": "Archive of Echoes",
+      "subtitle": "A gnostic graphic novel",
+      "description": "see store_description.txt",
+      "keywords": "see keywords.txt",
+      "promotional_text": "Read the hidden history of consciousness — five lenses, twelve issues, one awakening.  A graphic novel unlike any other.",
+      "whats_new": "Initial release.  Twelve issues.  Five epistemic lenses.  One capstone resolution chord."
+    }
+  },
+  "app_icon": "Assets/Art/Cover/app_icon_1024.png",
+  "rating_details": {
+    "cartoon_violence": "none",
+    "realistic_violence": "none",
+    "horror": "mild",
+    "mature_suggestive": "none",
+    "alcohol": "none",
+    "drugs": "none"
+  },
+  "requires_network": false,
+  "game_center": false
+}

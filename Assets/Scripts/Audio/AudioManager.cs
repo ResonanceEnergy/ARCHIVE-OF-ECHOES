@@ -38,6 +38,9 @@ namespace ArchiveOfEchoes
         [SerializeField] private AudioClip t5UnlockClip;
         [SerializeField] private AudioClip djedBarActivatedClip;
         [SerializeField] private AudioClip circuitCloseClip;
+        [SerializeField] private AudioClip paperRustleClip;     // Phase 5 foley
+        [SerializeField] private AudioClip capstonePlacedClip;  // Phase 5 stone thud
+        [SerializeField] private AudioClip finaleChordClip;     // Phase 5 resolution chord
 
         // ── Haptic payload map ─────────────────────────────────────────────────────
         private enum HapticEvent
@@ -138,6 +141,9 @@ namespace ArchiveOfEchoes
                 case MotifType.T5Unlock:             PlayMotif(t5UnlockClip); break;
                 case MotifType.DjedBarActivated:     PlayMotif(djedBarActivatedClip); break;
                 case MotifType.CircuitClose:         PlayMotif(circuitCloseClip); break;
+                case MotifType.PaperRustle:          PlayMotif(paperRustleClip); break;
+                case MotifType.CapstonePlaced:       PlayMotif(capstonePlacedClip); break;
+                case MotifType.FinaleChord:          PlayMotif(finaleChordClip); break;
             }
         }
 
@@ -166,6 +172,16 @@ namespace ArchiveOfEchoes
         public void OnKnowledgeKeyCollected() => PlayMotif(knowledgeKeyCollectedClip);
         public void OnDjedBarActivated()      => PlayMotif(djedBarActivatedClip);
         public void OnCircuitClose()          => PlayMotif(circuitCloseClip);
+
+        /// <summary>Foley page-crinkle: physical paper rustle (Phase 5).</summary>
+        public void OnPaperRustle()           => PlayMotif(paperRustleClip);
+
+        /// <summary>Capstone stone-on-stone seating impact (Phase 5).</summary>
+        public void OnCapstonePlaced()
+        {
+            PlayMotif(capstonePlacedClip);
+            Haptic(HapticEvent.LongPressComplete);
+        }
 
         /// <summary>
         /// All-chord finale: plays all five lens drones simultaneously at equal volume.

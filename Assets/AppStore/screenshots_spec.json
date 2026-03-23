@@ -1,0 +1,62 @@
+{
+  "note": "Capture in iOS Simulator or on-device.  Recommended: portrait orientation unless the layout is landscape-native.",
+  "devices": {
+    "iPhone_6_7_inch": {
+      "resolution": "1290x2796",
+      "required_count": 5,
+      "shots": [
+        {
+          "n": 1,
+          "scene": "Title screen — full-bleed cover art with warm glow overlay"
+        },
+        {
+          "n": 2,
+          "scene": "ComicReader four-panel grid — Mythic lens, Issue 00 page 1"
+        },
+        {
+          "n": 3,
+          "scene": "B-series stabilise — long-press progress ring active on corrupt panel"
+        },
+        {
+          "n": 4,
+          "scene": "A-series reorder — panels being dragged to correct sequence"
+        },
+        {
+          "n": 5,
+          "scene": "Issue 12 capstone — all-lens chord resolution, circuit glow effect"
+        }
+      ]
+    },
+    "iPhone_5_5_inch": {
+      "resolution": "1242x2208",
+      "required_count": 5,
+      "shots": "Same scenes as 6.7-inch — re-export at 5.5-inch resolution."
+    },
+    "iPad_Pro_12_9_inch": {
+      "resolution": "2048x2732",
+      "required_count": 5,
+      "shots": [
+        {
+          "n": 1,
+          "scene": "Title screen — archival cover art, landscape or portrait"
+        },
+        {
+          "n": 2,
+          "scene": "ComicReader wide grid — Technologic lens active, Issue 02 page 2"
+        },
+        {
+          "n": 3,
+          "scene": "Lens-switch radial overlay — all 5 lens icons, Spiritual selected"
+        },
+        {
+          "n": 4,
+          "scene": "Knowledge Fragment expanded — decoded panel full-screen, key glowing"
+        },
+        {
+          "n": 5,
+          "scene": "Issue Complete screen — score panel, keys collected, unlock animation"
+        }
+      ]
+    }
+  }
+}

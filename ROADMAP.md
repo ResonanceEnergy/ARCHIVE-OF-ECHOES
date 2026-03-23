@@ -107,13 +107,13 @@ Build the minimum playable loop:
 
 ---
 
-## Phase 5 — Polish & Ship
+## Phase 5 — Polish & Ship ✅ COMPLETE
 
-- [ ] Audio design (haptics, foley, ambient, music)
-- [ ] Art polish (ink textures, glow, paper grain)
-- [ ] Accessibility (font size, contrast modes)
-- [ ] App Store prep (screenshots, description)
-- [ ] Soft launch / TestFlight
+- [x] Audio design (haptics, foley, ambient, music)
+- [x] Art polish (ink textures, glow, paper grain)
+- [x] Accessibility (font size, contrast modes)
+- [x] App Store prep (screenshots, description)
+- [x] Soft launch / TestFlight
 
 ---
 

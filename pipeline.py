@@ -3,23 +3,29 @@
 pipeline.py — One-command master automation runner for Archive of Echoes
 
 Steps executed in order:
-  1. generate_art.py    — AI-generated panel / UI artwork (xAI Aurora API)
-  2. generate_audio.py  — procedurally synthesised WAV audio (stdlib only)
-  3. Unity batchmode    — data build + scene build + asset imports
+  1. generate_art.py          — AI-generated panel / UI artwork (xAI Aurora API)
+  2. generate_audio.py        — procedurally synthesised WAV audio (stdlib only)
+  3. Unity batchmode          — data build + scene build + asset imports
+  4. generate_art_polish.py   — PIL overlay textures (grain, vignette, glow)
+  5. gen_appstore.py          — App Store metadata (description, keywords, spec)
 
 Usage:
-    python pipeline.py                   # full run
-    python pipeline.py --skip-art        # skip art generation
-    python pipeline.py --skip-audio      # skip audio generation
-    python pipeline.py --skip-unity      # skip Unity batchmode step
-    python pipeline.py --dry-run         # print what would happen, run nothing
-    python pipeline.py --force-art       # force-regenerate all art
-    python pipeline.py --force-audio     # force-regenerate all audio
+    python pipeline.py                     # full run
+    python pipeline.py --skip-art          # skip art generation
+    python pipeline.py --skip-audio        # skip audio generation
+    python pipeline.py --skip-unity        # skip Unity batchmode step
+    python pipeline.py --skip-polish       # skip art-polish overlays
+    python pipeline.py --skip-appstore     # skip App Store metadata
+    python pipeline.py --dry-run           # print what would happen, run nothing
+    python pipeline.py --force-art         # force-regenerate all art
+    python pipeline.py --force-audio       # force-regenerate all audio
+    python pipeline.py --force-polish      # force-regenerate all polish overlays
 
 Requirements:
     - Python 3.8+
     - generate_art.py needs: pip install openai pillow  (for art step)
     - generate_audio.py needs: nothing (stdlib only)
+    - generate_art_polish.py needs: pip install pillow
     - Unity Hub installed at the default Windows path
     - Unity project root = this script's directory
 """
@@ -42,8 +48,10 @@ PROJECT_ROOT   = Path(__file__).parent
 UNITY_HUB_ROOT = Path(r"C:\Program Files\Unity\Hub\Editor")
 LOG_FILE       = PROJECT_ROOT / "pipeline_build.log"
 
-GENERATE_ART   = PROJECT_ROOT / "generate_art.py"
-GENERATE_AUDIO = PROJECT_ROOT / "generate_audio.py"
+GENERATE_ART    = PROJECT_ROOT / "generate_art.py"
+GENERATE_AUDIO  = PROJECT_ROOT / "generate_audio.py"
+GENERATE_POLISH = PROJECT_ROOT / "generate_art_polish.py"
+GEN_APPSTORE    = PROJECT_ROOT / "gen_appstore.py"
 
 BATCH_METHOD   = "ArchiveOfEchoes.Editor.ArchiveBootstrapper.BatchBuildAll"
 
@@ -177,18 +185,41 @@ def _tail_log(log_path: Path, lines: int = 30) -> None:
     print("  ────────────────────────────────────────────────────────────")
 
 
+def step_polish(dry_run: bool, force: bool) -> int:
+    _banner("STEP 4 — Art Polish  (PIL overlay textures)")
+    if not GENERATE_POLISH.exists():
+        print(f"  WARN: {GENERATE_POLISH} not found — skipping.")
+        return 0
+    cmd = [sys.executable, str(GENERATE_POLISH)]
+    if force:
+        cmd.append("--force")
+    return _run(cmd, dry_run=dry_run, label="generate_art_polish.py")
+
+
+def step_appstore(dry_run: bool) -> int:
+    _banner("STEP 5 — App Store Metadata  (description, keywords, spec)")
+    if not GEN_APPSTORE.exists():
+        print(f"  WARN: {GEN_APPSTORE} not found — skipping.")
+        return 0
+    cmd = [sys.executable, str(GEN_APPSTORE)]
+    return _run(cmd, dry_run=dry_run, label="gen_appstore.py")
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Archive of Echoes — full asset generation + Unity build pipeline"
     )
-    parser.add_argument("--skip-art",    action="store_true", help="Skip art generation")
-    parser.add_argument("--skip-audio",  action="store_true", help="Skip audio generation")
-    parser.add_argument("--skip-unity",  action="store_true", help="Skip Unity batchmode")
-    parser.add_argument("--force-art",   action="store_true", help="Force-regenerate all art")
-    parser.add_argument("--force-audio", action="store_true", help="Force-regenerate all audio")
-    parser.add_argument("--dry-run",     action="store_true", help="Print commands, run nothing")
+    parser.add_argument("--skip-art",     action="store_true", help="Skip art generation")
+    parser.add_argument("--skip-audio",   action="store_true", help="Skip audio generation")
+    parser.add_argument("--skip-unity",   action="store_true", help="Skip Unity batchmode")
+    parser.add_argument("--skip-polish",  action="store_true", help="Skip art-polish overlays")
+    parser.add_argument("--skip-appstore",action="store_true", help="Skip App Store metadata")
+    parser.add_argument("--force-art",    action="store_true", help="Force-regenerate all art")
+    parser.add_argument("--force-audio",  action="store_true", help="Force-regenerate all audio")
+    parser.add_argument("--force-polish", action="store_true", help="Force-regenerate polish overlays")
+    parser.add_argument("--dry-run",      action="store_true", help="Print commands, run nothing")
     args = parser.parse_args()
 
     if args.dry_run:
@@ -211,6 +242,16 @@ def main() -> None:
         if rc != 0:
             errors.append(f"Unity batchmode failed (exit {rc})")
 
+    if not args.skip_polish:
+        rc = step_polish(args.dry_run, args.force_polish)
+        if rc != 0:
+            errors.append(f"Art polish failed (exit {rc})")
+
+    if not args.skip_appstore:
+        rc = step_appstore(args.dry_run)
+        if rc != 0:
+            errors.append(f"App Store metadata failed (exit {rc})")
+
     # ── Summary ──────────────────────────────────────────────────────────────────
     _banner("PIPELINE COMPLETE")
     if errors:
@@ -225,10 +266,12 @@ def main() -> None:
             print(f"  ✓  Unity log: {LOG_FILE}")
         print()
         print("  Open Unity and check:")
-        print("    • Assets/Audio/  — WAV files present")
-        print("    • Assets/Art/    — PNG files present")
-        print("    • Lens SOs       — ambientNote assigned")
-        print("    • AudioManagerPrefab — all 9 SFX clips assigned")
+        print("    • Assets/Audio/  — SFX + drone WAV files (18 total)")
+        print("    • Assets/Art/UI/ — polish overlays (grain, vignette, ink lines, glow)")
+        print("    • Assets/AppStore/ — store_description.txt, metadata.json, keywords.txt")
+        print("    • Lens SOs         — ambientNote assigned")
+        print("    • AudioManagerPrefab — all 12 SFX clips assigned")
+        print("    • AccessibilityDefaults.asset — font scale 1.0, Normal contrast")
         print()
 
 

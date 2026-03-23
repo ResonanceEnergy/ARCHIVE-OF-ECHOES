@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3c377e25d03aa590ebe74494fee822d3
+TextureImporter:
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsPerUnit: 100
+  textureType: Sprite
+  filterMode: Bilinear
+  wrapMode: Repeat
+  maxTextureSize: 2048
+  textureCompression: Normal
+  sRGBTexture: 1

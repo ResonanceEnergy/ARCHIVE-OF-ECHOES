@@ -13,8 +13,11 @@ namespace ArchiveOfEchoes.Editor
     ///     2 – Build Data Assets (Issues 00–01)
     ///     3 – Build Scenes and Prefabs
     ///     4 – Register Build Settings
+    ///     5 – Import Art Assets
+    ///     6 – Import Audio Assets
+    ///     7 – Build Accessibility Assets
     ///     ──────────────────────────────
-    ///     ⚡ BUILD EVERYTHING (runs all four in order)
+    ///     ⚡ BUILD EVERYTHING (runs all steps in order)
     ///
     /// Run "⚡ BUILD EVERYTHING" once on a fresh Unity project to produce a
     /// fully wired vertical-slice ready for art / audio assignment.
@@ -40,6 +43,9 @@ namespace ArchiveOfEchoes.Editor
 
         [MenuItem("Tools/Archive of Echoes/6 – Import Audio Assets")]
         public static void MenuImportAudio() => ArchiveAudioImporter.ImportAll();
+
+        [MenuItem("Tools/Archive of Echoes/7 \u2013 Build Accessibility Assets")]
+        public static void MenuBuildAccessibility() => ArchiveAccessibilityBuilder.BuildAccessibilityDefaults();
 
         [MenuItem("Tools/Archive of Echoes/⚡ BUILD EVERYTHING")]
         public static void MenuBuildEverything()
@@ -70,7 +76,8 @@ namespace ArchiveOfEchoes.Editor
 
             Debug.Log("[Archive] ── Step 6: Import audio assets ────────────────");
             ArchiveAudioImporter.ImportAll();
-
+            Debug.Log("[Archive] ── Step 7: Build accessibility assets ────────────");
+            ArchiveAccessibilityBuilder.BuildAccessibilityDefaults();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.DisplayDialog("Archive of Echoes", "✅ BUILD COMPLETE", "Dismiss");
@@ -94,6 +101,7 @@ namespace ArchiveOfEchoes.Editor
             RegisterBuildSettings();
             ArchiveArtImporter.ImportAll();
             ArchiveAudioImporter.ImportAll();
+            ArchiveAccessibilityBuilder.BuildAccessibilityDefaults();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Debug.Log("[Archive] BatchBuildAll — complete ✅");
@@ -124,6 +132,7 @@ namespace ArchiveOfEchoes.Editor
                 "Assets/ScriptableObjects/Pages/Issue01",
                 "Assets/ScriptableObjects/Keys",
                 "Assets/ScriptableObjects/Lenses",
+                "Assets/ScriptableObjects/Accessibility",  // Phase 5
 
                 // Art placeholders
                 "Assets/Art",
@@ -137,6 +146,9 @@ namespace ArchiveOfEchoes.Editor
                 "Assets/Audio/Drones",
                 "Assets/Audio/Motifs",
                 "Assets/Audio/SFX",
+
+                // App Store submission assets (Phase 5)
+                "Assets/AppStore",
 
                 // Editor
                 "Assets/Editor",

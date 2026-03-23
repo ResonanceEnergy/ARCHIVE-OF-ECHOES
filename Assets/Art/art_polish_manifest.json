@@ -1,0 +1,22 @@
+[
+  {
+    "id": "paper_grain",
+    "path": "Assets/Art/UI/paper_grain.png",
+    "status": "generated"
+  },
+  {
+    "id": "vignette",
+    "path": "Assets/Art/UI/vignette.png",
+    "status": "generated"
+  },
+  {
+    "id": "ink_lines",
+    "path": "Assets/Art/UI/ink_lines.png",
+    "status": "generated"
+  },
+  {
+    "id": "glow_overlay",
+    "path": "Assets/Art/UI/glow_overlay.png",
+    "status": "generated"
+  }
+]

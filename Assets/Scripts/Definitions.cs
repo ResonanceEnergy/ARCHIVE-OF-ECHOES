@@ -74,7 +74,10 @@ namespace ArchiveOfEchoes
         KnowledgeKeyCollected,
         T5Unlock,
         DjedBarActivated,
-        CircuitClose
+        CircuitClose,
+        PaperRustle,    // foley: physical page crinkle (Phase 5)
+        CapstonePlaced, // stone-on-stone seating click (Phase 5)
+        FinaleChord,    // held all-lens resolution chord (Phase 5)
     }
 
     /// <summary>iOS haptic feedback tokens (iOS-only; no-op on other platforms).</summary>
