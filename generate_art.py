@@ -1081,6 +1081,155 @@ ASSETS = [
             "Egyptian semi-realistic comic style, the moment should feel like weight and purpose and arrival"
         ),
     },
+    # ── Phase 4: Issue 11 — The Circuit ──────────────────────────────────────
+    {
+        "id": "i11_p3_djed",
+        "path": "Assets/Art/Panels/Issue11/p11_p3_djed.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Djed pillar rendered in four stacked glowing bars, each bar representing a different timeline — "
+            "Bar 1 lowest (earth-root amber T1), Bar 2 (vivid city-grid blue T2), "
+            "Bar 3 (Architect blueprint teal T3), Bar 4 topmost (defaced ochre T4 restored to gold), "
+            "each bar glows with its own color and they merge at the center into unified warm gold, "
+            "the four-bar activation sequence is mid-completion: three bars solid, fourth just lighting, "
+            "small text fragments float beside each bar — a word, a glyph, a city silhouette, a break, "
+            "the pillar stands in the eastern shaft of the Giza cross-section vertical axis, "
+            "circuit lines begin running from the Djed base down toward the King's Chamber, "
+            "Egyptian semi-realistic comic style, the image should feel like a word being spoken correctly for the first time"
+        ),
+    },
+    {
+        "id": "i11_p5_resonants",
+        "path": "Assets/Art/Panels/Issue11/p11_p5_resonants.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a full panel reveal of the Resonants — a group of five to seven figures standing in a wide formation "
+            "across a corrupted archival space that is mid-cascade but clearly stopping, halted, "
+            "the leader figure at the center shares the Architect's proportions from Issue 04: "
+            "same height, same measured stillness, slightly different garment, clearly a different person, "
+            "the figures are not hostile, not triumphant — they are present, steady, they have been here a long time, "
+            "each figure is partially translucent, some more than others, as if existing between archive pages, "
+            "they hold the corruption at bay without dramatic gesture — simply by being there, "
+            "the leader's posture and gaze are directed toward the reader, not the Archivist, "
+            "the cascade corruption that was spreading from all sides is visibly frozen mid-motion by their presence, "
+            "Egyptian semi-realistic comic style, the image should feel like reliable backup finally arriving"
+        ),
+    },
+    {
+        "id": "i11_p7_djed_complete",
+        "path": "Assets/Art/Panels/Issue11/p11_p7_djed_complete.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a splash image of the Djed pillar at full power — all four bars lit simultaneously in warm gold, "
+            "the complete Giza cross-section rendered in Spiritual Lens circuit-line style: "
+            "every shaft, every chamber, every passage filled with branching golden circuit threads, "
+            "the entire structure blazes with interconnected light except for one single point: "
+            "the apex slot at the very top of the exterior pyramid — a perfect dark triangle, a single missing piece, "
+            "the circuit lines all lead toward that dark triangle and stop there, "
+            "the Djed is centered in the composition, dominant, its four bars the spine of the entire image, "
+            "below it the Ark glows in the King's Chamber; above it only the dark slot remains, "
+            "Egyptian semi-realistic comic style, the image tone: something vast and correct, "
+            "with one deliberate absence that gives the whole thing meaning"
+        ),
+    },
+    # ── Phase 4: Issue 12 — The Last Panel ───────────────────────────────────
+    {
+        "id": "i12_p1_capstone",
+        "path": "Assets/Art/Panels/Issue12/p12_p1_capstone.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a small apex chamber at the very top of the pyramid's interior shaft — "
+            "just large enough for one person and one object, ceiling low, walls precise cut stone, "
+            "centered: a small triangular pyramid of white-gold stone resting in a carved stone cradle, "
+            "the capstone's surface is smooth but marked with extremely fine circuit-line engravings "
+            "that match the underside of the apex slot exactly, "
+            "warm gold light emanates from within the capstone itself — it has been waiting, "
+            "one hand reaches toward the capstone from the panel edge, as if about to pick it up, "
+            "the CAPSTONE LOCK ability indicator from the Ark is visible in the lower corner: "
+            "previously gray, now blazing full gold for the first time, "
+            "Egyptian semi-realistic comic style, the image should feel like a small inevitable thing "
+            "in a very significant place"
+        ),
+    },
+    {
+        "id": "i12_p4_placement",
+        "path": "Assets/Art/Panels/Issue12/p12_p4_placement.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the capstone being lowered into the apex slot — viewed from above looking downward, "
+            "the slot is a perfect triangular opening in ancient stone, its edges precise and carved, "
+            "the capstone descends from two hands gripping its sides in parallel downward motion: "
+            "the same two-thumb parallel grip of the Carry Constraint inverted — going down, not carried forward, "
+            "the capstone is in correct orientation — subtle edge-mark alignment is visible, "
+            "above the slot, the Djed circuit lines from Spiritual Lens converge and point to the correct capstone edge, "
+            "below the slot (visible through the opening): the deep shaft descending to the King's Chamber, "
+            "the Ark a golden glow far below, the Djed on the right shaft wall steady at 4 bars, "
+            "Egyptian semi-realistic comic style, the image should feel like the last deliberate act, "
+            "precise, careful, inevitable"
+        ),
+    },
+    {
+        "id": "i12_p5_circuit",
+        "path": "Assets/Art/Panels/Issue12/p12_p5_circuit.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the complete Giza cross-section in full Spiritual Lens activation — every circuit line blazing, "
+            "the capstone now seated at the apex: the triangular slot sealed, the exterior apex complete, "
+            "from the capstone: a single line of gold descends through the shaft, meeting the Djed at 4 bars, "
+            "the Djed amplifies the signal downward into the King's Chamber where the Ark blazes "
+            "with all five lens aura colors simultaneously — amber, blue, teal, ochre, white-gold, "
+            "the winged figures on the Ark's mercy seat face each other with wings touching overhead, "
+            "from the Ark: lines spread outward through every passage, shaft, and chamber — the entire geometry lit, "
+            "the exterior of the pyramid shows a warm pulse radiating outward in concentric rings, "
+            "Egyptian semi-realistic comic style, the image should feel like the moment something "
+            "engineered across many timelines finally does what it was designed to do"
+        ),
+    },
+    {
+        "id": "i12_p7_2100",
+        "path": "Assets/Art/Panels/Issue12/p12_p7_2100.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the 2100 world returns — desaturated near-future cityscape around a small condemned archive building, "
+            "a person stands just inside the archive's front room, holding a full-color comic book "
+            "in both hands in a world where everything else is gray-toned, "
+            "the comic cover is visible: the ancient eyes on it have shifted ever so slightly — "
+            "not a dramatic change, an almost imperceptible one, but clearly different from when the reader first saw it, "
+            "nearby: a classification terminal with a blinking cursor — "
+            "the screen shows the new entry being typed: ESSENTIAL RECORD. DO NOT DEMOLISH. "
+            "replacing the old IRRECOVERABLE classification, "
+            "outside the archival window: demolition equipment that is parked and idle, not active, "
+            "Egyptian semi-realistic comic style blending with near-future noir palette, "
+            "the image should feel like a small irrevocable act in a bureaucratic world"
+        ),
+    },
+    {
+        "id": "i12_p8_final",
+        "path": "Assets/Art/Panels/Issue12/p12_p8_final.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Archive building exterior at night in 2100 — "
+            "a modest stone-and-glass structure surrounded by a dense near-future cityscape, "
+            "demolition machinery parked on the street outside: cranes and equipment standing idle, "
+            "no workers, no activity — just parked, not ready, "
+            "in the lobby window of the Archive building: a single warm light is on, "
+            "the light is visible from outside, deliberately simple and human against the cold city, "
+            "the street is otherwise deserted and quiet, "
+            "a line of gutter text runs along the bottom right margin outside the panel border: "
+            "\"I'll be in the next one.\" — the gutter entity's final word, "
+            "Egyptian semi-realistic comic style merged with near-future noir, "
+            "the image should feel like something has been preserved, "
+            "and the story can continue from here"
+        ),
+    },
 ]
 
 

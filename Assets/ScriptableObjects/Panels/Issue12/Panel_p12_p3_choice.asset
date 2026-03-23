@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p12_p3_choice
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p12_p3_choice
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: Before you place the capstone, consider how you understand what you've
+    read. Your lens doesn't change what the Archive holds. It changes what the placement
+    means to you. Choose a lens. Then place.
+  archivistNote: 'Lens selector appears. All five available. No lens is wrong. Mythic:
+    divine completion. Technologic: engineering completion. Symbolic: meaning completion.
+    Political: historical completion. Spiritual: transcendent completion. The lens
+    is the choice.'
+  gutterText: 
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 1
+  branchOptions: []
+  revealsKeys: []
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

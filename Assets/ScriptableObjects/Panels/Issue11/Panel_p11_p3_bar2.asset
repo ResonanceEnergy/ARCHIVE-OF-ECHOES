@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p11_p3_bar2
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p11_p3_bar2
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: "Bar 2 \u2014 T2 (Cities Grid): Cardinal Alignment dial. Rotate to
+    15.5\xB0. The second bar locks."
+  archivistNote: "C1 Alignment gesture (one step): the 15.5\xB0 epoch offset from
+    Issue 06. The second bar's resonance frequency."
+  gutterText: 
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys: []
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

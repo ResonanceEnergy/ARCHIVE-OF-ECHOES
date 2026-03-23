@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p11_p2_bars
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p11_p2_bars
+  panelType: 0
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: Four bars. I've seen them separately across every timeline cluster.
+    They were always the same pillar.
+  archivistNote: "The Djed pillar composite: Bar 1 from Issue 02 (T1/E.D.I.N.), Bar
+    2 from Issue 03 (T2/Cities), Bar 3 referenced in Issue 04 (T3/Blueprint), Bar
+    4 visible in Issue 04 under Political Lens \u2014 never highlighted, only now
+    recognized."
+  gutterText: 
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys: []
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

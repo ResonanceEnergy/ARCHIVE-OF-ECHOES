@@ -65,5 +65,13 @@
   "i09_p5_capslot": "Assets/Art/Panels/Issue09/p09_p5_capslot.png",
   "i10_p5_assembly": "Assets/Art/Panels/Issue10/p10_p5_assembly.png",
   "i10_p3_identity": "Assets/Art/Panels/Issue10/p10_p3_identity.png",
-  "i10_p7_carry": "Assets/Art/Panels/Issue10/p10_p7_carry.png"
+  "i10_p7_carry": "Assets/Art/Panels/Issue10/p10_p7_carry.png",
+  "i11_p3_djed": "Assets/Art/Panels/Issue11/p11_p3_djed.png",
+  "i11_p5_resonants": "Assets/Art/Panels/Issue11/p11_p5_resonants.png",
+  "i11_p7_djed_complete": "Assets/Art/Panels/Issue11/p11_p7_djed_complete.png",
+  "i12_p1_capstone": "Assets/Art/Panels/Issue12/p12_p1_capstone.png",
+  "i12_p4_placement": "Assets/Art/Panels/Issue12/p12_p4_placement.png",
+  "i12_p5_circuit": "Assets/Art/Panels/Issue12/p12_p5_circuit.png",
+  "i12_p7_2100": "Assets/Art/Panels/Issue12/p12_p7_2100.png",
+  "i12_p8_final": "Assets/Art/Panels/Issue12/p12_p8_final.png"
 }

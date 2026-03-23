@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_12
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_12
+  issueNumber: 12
+  title: The Last Panel
+  arc: "T5 Cluster \u2014 E: The Last Panel"
+  pages:
+  - {fileID: 11400000, guid: 2df551b9b3cf48846a66026a29391d51, type: 2}
+  - {fileID: 11400000, guid: d66767026e7ca7a489f5b665db774c9f, type: 2}
+  - {fileID: 11400000, guid: 50ba61230acea3e46a7bb4b496d93ae6, type: 2}
+  - {fileID: 11400000, guid: fa66a6659ae4687408f954197cf66619, type: 2}
+  - {fileID: 11400000, guid: 865d650e1c257b74ca698bafe4c00904, type: 2}
+  - {fileID: 11400000, guid: 9bf6fc18cfcf35d45b92c11146601117, type: 2}
+  - {fileID: 11400000, guid: 1358f650b245c694b80f23405a808068, type: 2}
+  - {fileID: 11400000, guid: c394f78a38ce0f845ba8c6b2855d1868, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_11
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p12_p6_end_c2
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p12_p6_end_c2
+  panelType: 0
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: "The Gutter entity speaks one last time, from outside the comic's
+    panels \u2014 from the gutter between the last panel and the back cover: \"The
+    archive doesn't end. It goes underground. It comes up somewhere else. Someone
+    else will find it. You made sure of that.\""
+  archivistNote: "Record Final \u2014 The Gutter Path. I don't know if this is the
+    right outcome. I know it's an honest one."
+  gutterText: 
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys: []
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

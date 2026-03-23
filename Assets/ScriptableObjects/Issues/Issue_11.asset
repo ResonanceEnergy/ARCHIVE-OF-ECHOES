@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_11
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_11
+  issueNumber: 11
+  title: The Circuit
+  arc: "T5 Cluster \u2014 D: The Circuit"
+  pages:
+  - {fileID: 11400000, guid: 0736943288e5c174a98abc7d61867e52, type: 2}
+  - {fileID: 11400000, guid: f60bd9e33c4b2d94a9126b8329cd10e8, type: 2}
+  - {fileID: 11400000, guid: 323e15a1039be78449bd28dcd8b348bb, type: 2}
+  - {fileID: 11400000, guid: a639e964ab7de0e4487a4e63fe41db27, type: 2}
+  - {fileID: 11400000, guid: 8db7c3733ae8f9a40a9849d9e3cc13fd, type: 2}
+  - {fileID: 11400000, guid: 4079e962e13c02c44a447a1b7cea2eca, type: 2}
+  - {fileID: 11400000, guid: ae663314ce657d04da6b564bc8b5ea76, type: 2}
+  - {fileID: 11400000, guid: 15c5d92ebb48b82408a1320893053a48, type: 2}
+  - {fileID: 11400000, guid: 6acc147aac998d34ebe828782560844a, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_10
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

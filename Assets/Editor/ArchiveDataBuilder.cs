@@ -36,6 +36,8 @@ namespace ArchiveOfEchoes.Editor
             BuildIssue08();
             BuildIssue09();
             BuildIssue10();
+            BuildIssue11();
+            BuildIssue12();
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -175,6 +177,15 @@ namespace ArchiveOfEchoes.Editor
             MakeKey(dir, "CARRIED",     "Carried Key",
                 "The Ark must be carried. Two poles. Two hands. One destination.",
                 new[] { LensType.Spiritual, LensType.Political }, false);
+
+            // Phase 4 keys ────────────────────────────────────────────────────
+            MakeKey(dir, "STABILITY",   "Stability Key",
+                "Four timelines. One pillar. The four-part word for stability, said correctly and completely.",
+                new[] { LensType.Spiritual, LensType.Mythic, LensType.Technologic }, true);
+
+            MakeKey(dir, "RESONANCE",   "Resonance Key",
+                "The circuit closed. The completed signal reaches. Something that had been waiting becomes less quiet.",
+                new[] { LensType.Spiritual, LensType.Symbolic }, true);
         }
 
         private static KnowledgeKeyData MakeKey(string dir, string keyId, string displayName,
@@ -1873,6 +1884,426 @@ namespace ArchiveOfEchoes.Editor
             EditorUtility.SetDirty(issue10);
 
             Debug.Log("[Archive] Issue 10 data built.");
+        }
+
+        // ── Issue 11 — "The Circuit" ──────────────────────────────────────────────
+
+        private static void BuildIssue11()
+        {
+            string panelDir = "Assets/ScriptableObjects/Panels/Issue11";
+            string pageDir  = "Assets/ScriptableObjects/Pages/Issue11";
+
+            var keyStability = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_STABILITY.asset");
+
+            // ── Page 1 — "Coffer Contact" ─────────────────────────────────────
+            var p11_p1_approach = MakePanel(panelDir, "p11_p1_approach", PanelType.Static,
+                caption: "King's Chamber. The passage to the coffer, final steps.");
+
+            var p11_p1_place = MakePanel(panelDir, "p11_p1_place", PanelType.Static,
+                caption: "The Carry Constraint concludes. The Ark settles into position, correctly oriented. The two poles removed.",
+                archivistNote: "E2 Carry Constraint complete. Ark in coffer.");
+
+            var p11_p1_circuit = MakePanel(panelDir, "p11_p1_circuit", PanelType.Static,
+                caption: "The circuit architecture blazes. Lines run outward from the coffer through stone — floors, walls, ceiling. They reach a boundary. And stop.",
+                archivistNote: "Spiritual Lens: the circuit activates partially. Dozens of threads spread from the Ark outward — then halt at the chamber wall.");
+
+            var p11_p1_archivist = MakePanel(panelDir, "p11_p1_archivist", PanelType.Static,
+                caption: "The circuit activated. But it isn't closed. It needs something outside the chamber. The blueprint shows it. Let me look.",
+                gutter: "The circuit ran to the wall, and the wall said: 'the stability pillar first.'");
+
+            var page11_1 = MakePage(pageDir, "page_11_1", PageLayout.FourPanel,
+                new[] { p11_p1_approach, p11_p1_place, p11_p1_circuit, p11_p1_archivist });
+
+            // ── Page 2 — "Finding the Djed Position" ─────────────────────────
+            var p11_p2_shaft = MakePanel(panelDir, "p11_p2_shaft", PanelType.Static,
+                caption: "A section of the structure not previously visited — a vertical shaft near the eastern face. The Notebook cross-section marks it: DJED POSITION.",
+                archivistNote: "The complete Giza cross-section (Archive Notebook) now has a new annotation. It was always in the blueprint.");
+
+            var p11_p2_bars = MakePanel(panelDir, "p11_p2_bars", PanelType.Static,
+                caption: "Four bars. I've seen them separately across every timeline cluster. They were always the same pillar.",
+                archivistNote:
+                    "The Djed pillar composite: Bar 1 from Issue 02 (T1/E.D.I.N.), " +
+                    "Bar 2 from Issue 03 (T2/Cities), Bar 3 referenced in Issue 04 (T3/Blueprint), " +
+                    "Bar 4 visible in Issue 04 under Political Lens — never highlighted, only now recognized.");
+
+            var p11_p2_notebook = MakePanel(panelDir, "p11_p2_notebook", PanelType.Interact,
+                caption: "The Djed requires activation at four nodes. You've visited all four. Confirm each.",
+                archivistNote: "Archive Notebook opens to the Djed entry — 4 referenced sightings mapped. Player taps each source location to feed resonance into the activation sequence.");
+
+            var page11_2 = MakePage(pageDir, "page_11_2", PageLayout.Strip,
+                new[] { p11_p2_shaft, p11_p2_bars, p11_p2_notebook });
+
+            // ── Page 3 — "Djed Activation Sequence" (4-bar mechanic) ──────────
+            var p11_p3_bar1 = MakePanel(panelDir, "p11_p3_bar1", PanelType.Stabilize,
+                caption: "Bar 1 — T1 (E.D.I.N.): Stabilize. Long-press, 3 seconds. The first bar locks and glows.",
+                startsCorrupted: true, corruptionLevel: 0.5f,
+                puzzleStabilizeDuration: 3f);
+
+            var p11_p3_bar2 = MakePanel(panelDir, "p11_p3_bar2", PanelType.Interact,
+                caption: "Bar 2 — T2 (Cities Grid): Cardinal Alignment dial. Rotate to 15.5\u00b0. The second bar locks.",
+                archivistNote: "C1 Alignment gesture (one step): the 15.5\u00b0 epoch offset from Issue 06. The second bar's resonance frequency.");
+
+            var p11_p3_bar3 = MakePanel(panelDir, "p11_p3_bar3", PanelType.Interact,
+                caption: "Bar 3 — T3 (Architect's Blueprint): Mirror-City alignment. Drag to match the reflected geometry.",
+                archivistNote: "Mirror alignment mechanic from Issue 04. Third bar: the Architect's contribution.");
+
+            var p11_p3_bar4 = MakePanel(panelDir, "p11_p3_bar4", PanelType.Interact,
+                caption: "Bar 4 — T4 (The Break): Defacement Undo. Restore the single apex glyph — the 6th glyph from Issue 05, finally unlocked.",
+                archivistNote: "Defacement Undo (B3). The apex glyph was locked until Issue 08. The Djed's fourth bar was always T4's contribution — the exile's knowledge.");
+
+            var p11_p3_complete = MakePanel(panelDir, "p11_p3_complete", PanelType.Static,
+                caption: "The Djed pillar: complete. All four bars. A pulse of light runs from the Djed through the shaft system to the King's Chamber. The circuit reignites.",
+                gutter: "Four timelines. One pillar. One word said correctly.",
+                revealsKeys: keyStability != null ? new[] { keyStability } : new KnowledgeKeyData[0]);
+
+            var page11_3 = MakePage(pageDir, "page_11_3", PageLayout.Strip,
+                new[] { p11_p3_bar1, p11_p3_bar2, p11_p3_bar3, p11_p3_bar4, p11_p3_complete });
+
+            // ── Page 4 — "Circuit Completion Boss Puzzle (E3) Part 1" ─────────
+            var p11_p4_board = MakePanel(panelDir, "p11_p4_board", PanelType.Static,
+                caption: "The complete Giza cross-section is the puzzle board. The circuit path: Ark \u2192 Djed \u2192 Chamber walls \u2192 Shafts \u2192 Surface \u2192 Capstone slot.",
+                archivistNote:
+                    "E3 Circuit Completion (boss puzzle). 9 break points — all Scribe interference. " +
+                    "The Scribes have reached inside the structure and disrupted 9 circuit nodes.");
+
+            var p11_p4_node1 = MakePanel(panelDir, "p11_p4_node1", PanelType.Stabilize,
+                caption: "Break point 1: Stabilize. A Scribe-corrupted circuit node in the lower passage.",
+                startsCorrupted: true, corruptionLevel: 0.7f,
+                puzzleStabilizeDuration: 3f);
+
+            var p11_p4_node2 = MakePanel(panelDir, "p11_p4_node2", PanelType.Stabilize,
+                caption: "Break point 2: Stabilize. Mid-shaft junction disrupted.",
+                startsCorrupted: true, corruptionLevel: 0.75f,
+                puzzleStabilizeDuration: 3f);
+
+            var p11_p4_node3 = MakePanel(panelDir, "p11_p4_node3", PanelType.Stabilize,
+                caption: "Break point 3: Stabilize. The King's Chamber circuit feed — hardest Stabilize yet.",
+                startsCorrupted: true, corruptionLevel: 0.9f,
+                puzzleStabilizeDuration: 4f);
+
+            var p11_p4_node4 = MakePanel(panelDir, "p11_p4_node4", PanelType.Interact,
+                caption: "Break point 4: Defacement Undo. A Scribe has removed alignment glyphs from a circuit junction mark.",
+                archivistNote: "B3 Defacement Undo at node 4. The Political Lens shows the Scribe intervention marks here.");
+
+            var p11_p4_node5 = MakePanel(panelDir, "p11_p4_node5", PanelType.Interact,
+                caption: "Break point 5: Defacement Undo. A second glyph erased from the shaft alignment system.",
+                archivistNote: "B3 Defacement Undo at node 5. Both removed glyphs are recognizable from Issue 05's glyph chain.");
+
+            var p11_p4_progress = MakePanel(panelDir, "p11_p4_progress", PanelType.Static,
+                caption: "5 of 9 break points repaired. The circuit diagram fills in — lower half now illuminated. The upper half: still dark, still Scribe-held.",
+                archivistNote: "Circuit diagram progress: 5/9 nodes repaired. The lower circuit section glows Spiritual emerald.");
+
+            var page11_4 = MakePage(pageDir, "page_11_4", PageLayout.FullBleed,
+                new[] { p11_p4_board, p11_p4_node1, p11_p4_node2, p11_p4_node3, p11_p4_node4, p11_p4_node5, p11_p4_progress },
+                isFullBleed: true);
+
+            // ── Page 5 — "Circuit Completion (E3) Part 2 + Scribes' Last Move" ─
+            var p11_p5_node6 = MakePanel(panelDir, "p11_p5_node6", PanelType.Interact,
+                caption: "Break point 6: C1 Alignment. A shaft angle physically disrupted — re-align it.",
+                archivistNote: "C1 Alignment (one step). The shaft has been fractionally shifted. The Technologic Lens shows the displacement clearly.");
+
+            var p11_p5_node7 = MakePanel(panelDir, "p11_p5_node7", PanelType.Interact,
+                caption: "Break point 7: Ark ability — Seal Burn. A Scribe lock on the upper circuit junction. The Ark dissolves it.",
+                archivistNote: "Ark ability: Seal Burn. The lock is a Scribe administrative seal — the Political Lens identifies it. Seal Burn removes it cleanly.");
+
+            var p11_p5_node8 = MakePanel(panelDir, "p11_p5_node8", PanelType.Interact,
+                caption: "Break point 8: Ark ability — Scan. A hidden bypass is needed. Scan reveals it.",
+                archivistNote: "Ark ability: Scan. The bypass was always present in the Architect's original circuit design — the Scribes covered it. Scan uncovers the route.");
+
+            var p11_p5_node9 = MakePanel(panelDir, "p11_p5_node9", PanelType.Interact,
+                caption: "Break point 9: Ark ability — Circuit Link. Two separated circuit nodes. Connect them.",
+                archivistNote: "Ark ability: Circuit Link. The two nodes are the only circuit elements that were never physically connected — designed to be linked by the Ark itself. The ninth repair.");
+
+            var p11_p5_cascade = MakePanel(panelDir, "p11_p5_cascade", PanelType.Static,
+                caption: "The ninth node repaired. The Scribes make their final move — ALL previously restored panels across the Archive attempt to corrupt simultaneously. Maximum cascade.",
+                startsCorrupted: true, corruptionLevel: 1.0f,
+                archivistNote: "Scribe final intervention: total simultaneous cascade across all issues. This is everything they have.");
+
+            var p11_p5_resonants = MakePanel(panelDir, "p11_p5_resonants", PanelType.Static,
+                caption: "The Resonants appear — full panel, full contact. Their leader speaks: \"We've been holding this since T3. We were waiting for a reader who would get this far. Now: we hold the line. You finish the circuit.\"",
+                archivistNote:
+                    "Resonants: full contact. Multiple figures clearly visible for the first time in-panel. " +
+                    "Leader proportions echo the Architect from Issue 04 — intentional ambiguity. " +
+                    "Third contact, but first time they are fully seen.");
+
+            var p11_p5_held = MakePanel(panelDir, "p11_p5_held", PanelType.Static,
+                caption: "The corruption stops entirely. Every panel stabilized — by the Resonants. Not by the player. For the first time, you didn't have to act. Caption: \"Backup works.\"",
+                gutter: "I've been doing this mostly alone. I didn't realize how much company I had.");
+
+            var page11_5 = MakePage(pageDir, "page_11_5", PageLayout.FullBleed,
+                new[] { p11_p5_node6, p11_p5_node7, p11_p5_node8, p11_p5_node9, p11_p5_cascade, p11_p5_resonants, p11_p5_held },
+                isFullBleed: true);
+
+            // ── Page 6 — "The Resonants' Disclosure" ─────────────────────────
+            var p11_p6_document = MakePanel(panelDir, "p11_p6_document", PanelType.Static,
+                caption:
+                    "THE RESONANTS: A RECORD OF THE READERS WHO STAYED. " +
+                    "We are the ones who entered the Archive and did not stop. We are distributed across panels \u2014 " +
+                    "some of us have been here since T3. Some arrived before you. None of us left. " +
+                    "We are not the answer. We are the context for the question. " +
+                    "The Archive has been contested since T4. The Scribes control the institutional record. We control the margins. " +
+                    "The circuit has been incomplete for a very long time. The object is now in position. The pillar is now active. One element remains. " +
+                    "We will hold the line through Issue 12. What you do in the last panel \u2014 that is yours. " +
+                    "Whatever you choose: it will be witnessed.",
+                gutter: "This is the first time I've cried in an archive. That's probably meaningful.",
+                archivistNote: "Resonant disclosure document: now fully legible in Archive Notebook. This is the faction's complete statement.");
+
+            var page11_6 = MakePage(pageDir, "page_11_6", PageLayout.FullBleed,
+                new[] { p11_p6_document },
+                isFullBleed: true);
+
+            // ── Page 7 — "Djed at Full Power" (Splash) ───────────────────────
+            var p11_p7_djed = MakePanel(panelDir, "p11_p7_djed", PanelType.Static,
+                caption: "The Djed pillar \u2014 full, stable, complete. All four bars glowing warm gold. The circuit lines in Spiritual Lens run through the structure in complete activated form. One dark point: the capstone slot at the apex.",
+                gutter: "Four timelines. One pillar. One word. Said correctly.",
+                archivistNote:
+                    "The Djed is the word for stability your ancestors used. " +
+                    "The full word. The four-part word. You learned it one bar at a time. " +
+                    "This is what it means complete.");
+
+            var page11_7 = MakePage(pageDir, "page_11_7", PageLayout.FullBleed,
+                new[] { p11_p7_djed },
+                isFullBleed: true);
+
+            // ── Page 8 — "Almost Finished" ────────────────────────────────────
+            var p11_p8_ark = MakePanel(panelDir, "p11_p8_ark", PanelType.Static,
+                caption: "The Ark in the coffer, glowing. Circuit active. Djed active. Light from the coffer pulses upward through the shaft system.");
+
+            var p11_p8_slot = MakePanel(panelDir, "p11_p8_slot", PanelType.Static,
+                caption: "The circuit's one dark point \u2014 the capstone slot, viewed from below. The pyramid's interior apex with its precisely cut triangular opening. One placement separates the open circuit from the closed one.");
+
+            var p11_p8_archivist = MakePanel(panelDir, "p11_p8_archivist", PanelType.Static,
+                caption: "I know what the capstone is. I've known since Issue 06. The shape. The proportion. The position. The locked fifth ability of the Ark: Capstone Lock. Everything is converging.");
+
+            var p11_p8_hand = MakePanel(panelDir, "p11_p8_hand", PanelType.Static,
+                caption: "Issue 12. The last panel.",
+                gutter: "The player's hand, just at the panel edge. Almost inside.");
+
+            var page11_8 = MakePage(pageDir, "page_11_8", PageLayout.FourPanel,
+                new[] { p11_p8_ark, p11_p8_slot, p11_p8_archivist, p11_p8_hand });
+
+            // ── Page 9 — "Issue 11 Complete" ──────────────────────────────────
+            var p11_p9_notebook = MakePanel(panelDir, "p11_p9_notebook", PanelType.Static,
+                caption: "The Archive Notebook detective board \u2014 fully complete except for one element. The capstone position marked with a triangular outline. Below it, in the Archivist's handwriting: ISSUE 12.",
+                gutter: "The circuit runs. The Djed is stable. The capstone slot is empty and waiting. This is the last thing.",
+                archivistNote:
+                    "Issue 11 complete. E3 Circuit Completion (9/9 nodes). Djed 4/4 bars. " +
+                    "Resonants: full disclosure. STABILITY key unlocked. " +
+                    "T5-D lit. T5-E (The Last Panel) visible and pulsing.");
+
+            var page11_9 = MakePage(pageDir, "page_11_9", PageLayout.FullBleed,
+                new[] { p11_p9_notebook },
+                entryTransition: PageTransition.InkDive,
+                isFullBleed: true);
+
+            // ── Issue 11 SO ───────────────────────────────────────────────────
+            var issue11 = LoadOrCreate<IssueData>("Assets/ScriptableObjects/Issues/Issue_11.asset");
+            issue11.issueId              = "issue_11";
+            issue11.issueNumber          = 11;
+            issue11.title                = "The Circuit";
+            issue11.arc                  = "T5 Cluster \u2014 D: The Circuit";
+            issue11.pages                = new[]
+            {
+                page11_1, page11_2, page11_3, page11_4,
+                page11_5, page11_6, page11_7, page11_8, page11_9
+            };
+            issue11.prerequisiteIssueIds = new[] { "issue_10" };
+            issue11.unlocksLenses        = new LensType[0];
+            issue11.unlocksKeys          = new KnowledgeKeyData[0];
+            EditorUtility.SetDirty(issue11);
+
+            Debug.Log("[Archive] Issue 11 data built.");
+        }
+
+        // ── Issue 12 — "The Last Panel" ───────────────────────────────────────────
+
+        private static void BuildIssue12()
+        {
+            string panelDir = "Assets/ScriptableObjects/Panels/Issue12";
+            string pageDir  = "Assets/ScriptableObjects/Pages/Issue12";
+
+            var keyResonance = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_RESONANCE.asset");
+
+            // ── Page 1 — "The Apex Chamber" (T5-E) ───────────────────────────
+            var p12_p1_map = MakePanel(panelDir, "p12_p1_map", PanelType.Static,
+                caption: "The Constellation Map — every node lit. Every line drawn. T5-E glowing fully. The last thread. The thread everything else was placed around.");
+
+            var p12_p1_chamber = MakePanel(panelDir, "p12_p1_chamber", PanelType.Static,
+                caption: "The apex shaft, fully navigated. A small chamber at the very top — just large enough for the player-character and the object inside.");
+
+            var p12_p1_capstone = MakePanel(panelDir, "p12_p1_capstone", PanelType.Static,
+                caption: "The capstone itself. A precise triangular pyramid of white-gold stone. Its underside geometry matches the slot exactly. It seems to already know where it goes.",
+                archivistNote: "I've been here before, in theory. Now I'm here in fact. The difference is everything.");
+
+            var p12_p1_pickup = MakePanel(panelDir, "p12_p1_pickup", PanelType.Interact,
+                caption: "Tap to pick up. The Ark ability indicator: CAPSTONE LOCK illuminates \u2014 gold, full brightness. Available for the first time. The last ability. The final placement.",
+                archivistNote: "Capstone Lock (5th Ark ability) now active. The indicator that has been visible but grayed throughout Issues 10\u201311 now blazes gold.");
+
+            var page12_1 = MakePage(pageDir, "page_12_1", PageLayout.FourPanel,
+                new[] { p12_p1_map, p12_p1_chamber, p12_p1_capstone, p12_p1_pickup });
+
+            // ── Page 2 — "The Last Descent" ───────────────────────────────────
+            var p12_p2_shaft = MakePanel(panelDir, "p12_p2_shaft", PanelType.Static,
+                caption: "The shaft, descending. The capstone carried. The Ark, visible through the open passage below, glowing. The Djed, on the right-side shaft, steady.");
+
+            var p12_p2_frombelow = MakePanel(panelDir, "p12_p2_frombelow", PanelType.Static,
+                caption: "The view from the King's Chamber upward \u2014 the slot, visible at the top of the ascending shaft. From below, it is a perfect triangle of sky.",
+                archivistNote: "From below: everything the structure was built to frame.");
+
+            var p12_p2_finalstab = MakePanel(panelDir, "p12_p2_finalstab", PanelType.Stabilize,
+                caption: "One final B1 Stabilize. The Scribes make one last, small attempt. Long-press: 2 seconds. The panel holds. The Scribes are gone.",
+                gutter: "They were always going to lose. The archive is not theirs.",
+                startsCorrupted: true, corruptionLevel: 0.4f,
+                puzzleStabilizeDuration: 2f);
+
+            var page12_2 = MakePage(pageDir, "page_12_2", PageLayout.Strip,
+                new[] { p12_p2_shaft, p12_p2_frombelow, p12_p2_finalstab });
+
+            // ── Page 3 — "The Choice of Lens" ────────────────────────────────
+            var p12_p3_choice = MakePanel(panelDir, "p12_p3_choice", PanelType.Interact,
+                caption:
+                    "Before you place the capstone, consider how you understand what you've read. " +
+                    "Your lens doesn't change what the Archive holds. It changes what the placement means to you. " +
+                    "Choose a lens. Then place.",
+                archivistNote:
+                    "Lens selector appears. All five available. No lens is wrong. " +
+                    "Mythic: divine completion. Technologic: engineering completion. " +
+                    "Symbolic: meaning completion. Political: historical completion. " +
+                    "Spiritual: transcendent completion. The lens is the choice.",
+                isBranchPoint: true);
+
+            var page12_3 = MakePage(pageDir, "page_12_3", PageLayout.FullBleed,
+                new[] { p12_p3_choice },
+                isFullBleed: true);
+
+            // ── Page 4 — "E4 Capstone Placement" (Final Puzzle) ───────────────
+            var p12_p4_orient = MakePanel(panelDir, "p12_p4_orient", PanelType.Interact,
+                caption: "The capstone slot from directly above. The capstone in your hands, from above. Four possible orientations. Three wrong, one correct.",
+                archivistNote:
+                    "E4 Capstone Placement (full). Correct orientation: " +
+                    "Technologic Lens shows subtle marks on capstone edges. " +
+                    "Spiritual Lens shows Djed circuit lines pointing toward the correct edge. " +
+                    "Once correctly oriented: Capstone Lock activates \u2014 Ark light rises through shaft to meet capstone underside.");
+
+            var p12_p4_lower = MakePanel(panelDir, "p12_p4_lower", PanelType.Interact,
+                caption: "Hold the correctly-oriented capstone over the slot. Two thumbs lower it. Parallel grip. Maintained.",
+                archivistNote: "Two-finger vertical drag downward \u2014 mirroring E2 Carry Constraint, but inverted. The descent is deliberate. The slot receives.");
+
+            var p12_p4_click = MakePanel(panelDir, "p12_p4_click", PanelType.Static,
+                caption: "The capstone descends. The slot receives it. The click.",
+                gutter: "The last placement. The last panel.",
+                archivistNote: "HAPTIC: long rising pulse. AUDIO: Capstone Lock ability activates with a resonant final chord note.",
+                revealsKeys: keyResonance != null ? new[] { keyResonance } : new KnowledgeKeyData[0]);
+
+            var page12_4 = MakePage(pageDir, "page_12_4", PageLayout.FullBleed,
+                new[] { p12_p4_orient, p12_p4_lower, p12_p4_click },
+                isFullBleed: true);
+
+            // ── Page 5 — "The Circuit Closes" (Cinematic) ────────────────────
+            var p12_p5_seated = MakePanel(panelDir, "p12_p5_seated", PanelType.Static,
+                caption: "The capstone seated. Its surface flush with the apex. The last triangular gap: sealed.",
+                archivistNote: "Scene 1 (1.5s): exterior apex — the slot is gone. A continuous surface.");
+
+            var p12_p5_cirflow = MakePanel(panelDir, "p12_p5_cirflow", PanelType.Static,
+                caption: "From deep inside: the line from the capstone descends through the shaft, reaches the Djed, amplifies, reaches the King's Chamber coffer, meets the Ark.",
+                archivistNote: "Scene 2 (2s): Spiritual Lens circuit diagram permanently active for this sequence.");
+
+            var p12_p5_ark = MakePanel(panelDir, "p12_p5_ark", PanelType.Static,
+                caption: "The Ark blazes with all five light characteristics simultaneously. The winged figures lean toward each other. Their wings: touching at the apex above the mercy seat. The circuit is complete.",
+                archivistNote: "Scene 3 (3s): all five Ark lens auras active at once, second time this has occurred \u2014 the first was Issue 10's E1 Assembly.");
+
+            var p12_p5_structure = MakePanel(panelDir, "p12_p5_structure", PanelType.Static,
+                caption: "The entire structure's circuit diagram blazes. All lines lit. All chambers active. The full geometry of Giza functioning as one coherent machine.",
+                archivistNote: "Scene 4 (2s): exterior view \u2014 a warm pulse from the entire structure, visible from outside.");
+
+            var p12_p5_still = MakePanel(panelDir, "p12_p5_still", PanelType.Static,
+                caption: "Silence. The structure settles. Still. Stable. The Djed, steady at 4 bars. Unwavering.",
+                gutter: "AUDIO: full-chord resolution \u2014 all five lens root notes simultaneously. Held 4 seconds. Then silence.",
+                archivistNote: "Scene 5 (1s): nothing moves. The most important single moment in the game.");
+
+            var page12_5 = MakePage(pageDir, "page_12_5", PageLayout.FullBleed,
+                new[] { p12_p5_seated, p12_p5_cirflow, p12_p5_ark, p12_p5_structure, p12_p5_still },
+                entryTransition: PageTransition.InkDive,
+                isFullBleed: true);
+
+            // ── Page 6 — "Three Endings" (Lens-Dependent Branch) ─────────────
+            // Ending A — Mythic/Political: Locked Stability
+            var p12_p6_end_a1 = MakePanel(panelDir, "p12_p6_end_a1", PanelType.Static,
+                caption: "The structure from outside. Unchanged in appearance. But something in the air is different. The sense of permanence.",
+                archivistNote: "ENDING A: Locked Stability. Active for Mythic or Political lens at placement.");
+
+            var p12_p6_end_a2 = MakePanel(panelDir, "p12_p6_end_a2", PanelType.Static,
+                caption: "The player-character stands outside the comic, holding it. The 2100 world is around them. The comic is closed.",
+                archivistNote: "Record Final \u2014 Stability. The thing most worth protecting was protected. This is enough.");
+
+            // Ending B — Symbolic/Spiritual: Resonant Harmony
+            var p12_p6_end_b1 = MakePanel(panelDir, "p12_p6_end_b1", PanelType.Static,
+                caption: "The structure begins to radiate: a warm pulse spreading across the landscape, then across the world. Not destructive. Resonant.",
+                archivistNote: "ENDING B: Resonant Harmony. Active for Symbolic or Spiritual lens at placement.");
+
+            var p12_p6_end_b2 = MakePanel(panelDir, "p12_p6_end_b2", PanelType.Static,
+                caption: "People in the 2100 world react \u2014 a sense, a feeling, an unexplained knowing. Something in everyone that had been waiting becomes less quiet.",
+                archivistNote: "Record Final \u2014 Resonance. The completed circuit transmits. I don't know who receives it. I believe the right ones will.");
+
+            // Ending C — Technologic/Gutter: The Gutter Path
+            var p12_p6_end_c1 = MakePanel(panelDir, "p12_p6_end_c1", PanelType.Static,
+                caption: "The capstone placed. Then \u2014 it shifts slightly, of its own accord. Not wrong. Truer than placed. The Gutter entity's mark is on the capstone.",
+                archivistNote: "ENDING C: The Gutter Path. Active for Technologic lens, or if Gutter entity dialogue was triggered throughout.");
+
+            var p12_p6_end_c2 = MakePanel(panelDir, "p12_p6_end_c2", PanelType.Static,
+                caption: "The Gutter entity speaks one last time, from outside the comic's panels \u2014 from the gutter between the last panel and the back cover: \"The archive doesn't end. It goes underground. It comes up somewhere else. Someone else will find it. You made sure of that.\"",
+                archivistNote: "Record Final \u2014 The Gutter Path. I don't know if this is the right outcome. I know it's an honest one.");
+
+            var page12_6 = MakePage(pageDir, "page_12_6", PageLayout.Strip,
+                new[] { p12_p6_end_a1, p12_p6_end_a2, p12_p6_end_b1, p12_p6_end_b2, p12_p6_end_c1, p12_p6_end_c2 });
+
+            // ── Page 7 — "2100 Returns" ───────────────────────────────────────
+            var p12_p7_sector = MakePanel(panelDir, "p12_p7_sector", PanelType.Static,
+                caption: "The 2100 world. The condemned sector 7-D. The player-character stands in the archive, the comic in their hands. The room is still scheduled for demolition. The clock hasn't stopped.");
+
+            var p12_p7_comic = MakePanel(panelDir, "p12_p7_comic", PanelType.Static,
+                caption: "A close-up of the comic. Full-color in a desaturated world. The cover now shows something different \u2014 barely \u2014 where the ancient eyes were looking, there's a hint of recognition. The eyes have seen something.",
+                archivistNote: "The cover has changed. Only the careful reader will notice.");
+
+            var p12_p7_terminal = MakePanel(panelDir, "p12_p7_terminal", PanelType.Interact,
+                caption: "The classification terminal: CLASSIFICATION: IRRECOVERABLE. Player types the new entry: CLASSIFICATION: ESSENTIAL RECORD. DO NOT DEMOLISH.",
+                gutter: "Whether what happened inside was real, remembered, or invented \u2014 the Archive thinks it happened. That's what archives are for.");
+
+            var page12_7 = MakePage(pageDir, "page_12_7", PageLayout.Strip,
+                new[] { p12_p7_sector, p12_p7_comic, p12_p7_terminal });
+
+            // ── Page 8 — "The Last Page" ──────────────────────────────────────
+            var p12_p8_final = MakePanel(panelDir, "p12_p8_final", PanelType.Static,
+                caption: "The Archive building exterior. 2100 city around it. Demolition equipment, parked \u2014 no longer in operational mode. In the lobby window of the Archive: a light is on.",
+                gutter:
+                    "Completion does not mean certainty. It means the story can continue. " +
+                    "\u2014 I'll be in the next one.",
+                archivistNote: "Issue 12 complete. Season 1 complete. The gutter is the last speaker.");
+
+            var page12_8 = MakePage(pageDir, "page_12_8", PageLayout.FullBleed,
+                new[] { p12_p8_final },
+                entryTransition: PageTransition.InkDive,
+                isFullBleed: true);
+
+            // ── Issue 12 SO ───────────────────────────────────────────────────
+            var issue12 = LoadOrCreate<IssueData>("Assets/ScriptableObjects/Issues/Issue_12.asset");
+            issue12.issueId              = "issue_12";
+            issue12.issueNumber          = 12;
+            issue12.title                = "The Last Panel";
+            issue12.arc                  = "T5 Cluster \u2014 E: The Last Panel";
+            issue12.pages                = new[]
+            {
+                page12_1, page12_2, page12_3, page12_4,
+                page12_5, page12_6, page12_7, page12_8
+            };
+            issue12.prerequisiteIssueIds = new[] { "issue_11" };
+            issue12.unlocksLenses        = new LensType[0];
+            issue12.unlocksKeys          = new KnowledgeKeyData[0];
+            EditorUtility.SetDirty(issue12);
+
+            Debug.Log("[Archive] Issue 12 data built.");
         }
 
         // ── Panel / Page factory helpers ──────────────────────────────────────────

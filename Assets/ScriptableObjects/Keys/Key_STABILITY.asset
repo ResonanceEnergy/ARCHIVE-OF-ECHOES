@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.KnowledgeKeyData
   keyId: STABILITY
   displayName: Stability Key
-  description: The Djed pillar stands. The circuit holds.
+  description: Four timelines. One pillar. The four-part word for stability, said
+    correctly and completely.
   icon: {fileID: 21300000, guid: 54b72c68d90445c7928ced4d36b08c1b, type: 3}
-  relevantLenses: 0100000004000000
+  relevantLenses: 040000000000000001000000
   isRequiredForT5: 1

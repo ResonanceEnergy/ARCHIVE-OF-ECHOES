@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.KnowledgeKeyData
   keyId: RESONANCE
   displayName: Resonance Key
-  description: A third city. A third argument. The myth that became a warning.
+  description: The circuit closed. The completed signal reaches. Something that had
+    been waiting becomes less quiet.
   icon: {fileID: 0}
-  relevantLenses: 0000000002000000
-  isRequiredForT5: 0
+  relevantLenses: 0400000002000000
+  isRequiredForT5: 1

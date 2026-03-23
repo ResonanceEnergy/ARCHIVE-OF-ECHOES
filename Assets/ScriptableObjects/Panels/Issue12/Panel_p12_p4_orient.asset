@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p12_p4_orient
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p12_p4_orient
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: The capstone slot from directly above. The capstone in your hands,
+    from above. Four possible orientations. Three wrong, one correct.
+  archivistNote: "E4 Capstone Placement (full). Correct orientation: Technologic
+    Lens shows subtle marks on capstone edges. Spiritual Lens shows Djed circuit
+    lines pointing toward the correct edge. Once correctly oriented: Capstone Lock
+    activates \u2014 Ark light rises through shaft to meet capstone underside."
+  gutterText: 
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys: []
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0
