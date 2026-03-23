@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_08
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_08
+  issueNumber: 8
+  title: Convergence Begins
+  arc: "T4/T5 Threshold \u2014 Cross-Timeline Synthesis"
+  pages:
+  - {fileID: 11400000, guid: e40a6ed8d92cc6943927485b2224a76c, type: 2}
+  - {fileID: 11400000, guid: be4e363bb84313a4ca4072add744b54d, type: 2}
+  - {fileID: 11400000, guid: 05bae2dda04d1a34d96864797dda133b, type: 2}
+  - {fileID: 11400000, guid: efb39601112d1564e854f036f2cc90db, type: 2}
+  - {fileID: 11400000, guid: 5ffa17685a2a7fa4eb8b59643ff071ad, type: 2}
+  - {fileID: 11400000, guid: 77853bf1c76fdec41bf194859ffb808d, type: 2}
+  - {fileID: 11400000, guid: 6a3a98b3d6ec9a041b04fd4f87d7ce6d, type: 2}
+  - {fileID: 11400000, guid: b9d73e195886033429ea50db954781f8, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_07
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

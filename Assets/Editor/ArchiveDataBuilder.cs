@@ -33,6 +33,9 @@ namespace ArchiveOfEchoes.Editor
             BuildIssue05();
             BuildIssue06();
             BuildIssue07();
+            BuildIssue08();
+            BuildIssue09();
+            BuildIssue10();
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -143,6 +146,35 @@ namespace ArchiveOfEchoes.Editor
             MakeKey(dir, "BLUEPRINT",      "Blueprint Key",
                 "Every measurement corresponds to a specification. It was received, not invented.",
                 new[] { LensType.Technologic, LensType.Mythic }, true);
+
+            // Phase 3 keys ────────────────────────────────────────────────────
+            MakeKey(dir, "THE_FIVE",    "The Five Key",
+                "Seal Burn, Scan, Circuit Link, Gutter Step, Capstone Lock. The Ark is an instrument.",
+                new[] { LensType.Technologic, LensType.Spiritual }, false);
+
+            MakeKey(dir, "CENTER",      "Center Key",
+                "T5: The Missing Center. Not forgotten — placed. Everything else was built around it.",
+                new[] { LensType.Mythic, LensType.Spiritual }, true);
+
+            MakeKey(dir, "FOUNDATION",  "Foundation Key",
+                "The subterranean chamber precedes the structure above it.",
+                new[] { LensType.Technologic, LensType.Mythic }, false);
+
+            MakeKey(dir, "ALIGNED",     "Aligned Key",
+                "All four shafts point to their stellar targets. The chamber was built for this moment.",
+                new[] { LensType.Technologic, LensType.Symbolic }, false);
+
+            MakeKey(dir, "SAME",        "Same Key",
+                "Two stories, one person. The exile carried what they sought. The carrier was the Ark.",
+                new[] { LensType.Symbolic, LensType.Political }, false);
+
+            MakeKey(dir, "COMPLETE_INSTRUMENT", "Complete Instrument Key",
+                "All four components assembled. All five abilities active. The Ark is whole.",
+                new[] { LensType.Mythic, LensType.Spiritual, LensType.Technologic }, true);
+
+            MakeKey(dir, "CARRIED",     "Carried Key",
+                "The Ark must be carried. Two poles. Two hands. One destination.",
+                new[] { LensType.Spiritual, LensType.Political }, false);
         }
 
         private static KnowledgeKeyData MakeKey(string dir, string keyId, string displayName,
@@ -1301,6 +1333,546 @@ namespace ArchiveOfEchoes.Editor
             EditorUtility.SetDirty(issue07);
 
             Debug.Log("[Archive] Issue 07 data built.");
+        }
+
+        // ── Issue 08 — "Convergence Begins" ──────────────────────────────────────
+
+        private static void BuildIssue08()
+        {
+            string panelDir = "Assets/ScriptableObjects/Panels/Issue08";
+            string pageDir  = "Assets/ScriptableObjects/Pages/Issue08";
+
+            var keyTheFive = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_THE_FIVE.asset");
+            var keyCenter  = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_CENTER.asset");
+
+            // ── Page 1 — "Thread Ends, Thread Begins" ────────────────────────
+            var p08_p1_t1 = MakePanel(panelDir, "p08_p1_t1", PanelType.Static,
+                caption: "T1: Origins. Descent over Eridu.");
+
+            var p08_p1_t2 = MakePanel(panelDir, "p08_p1_t2", PanelType.Static,
+                caption: "T2: Cities. The grid. The triangle.");
+
+            var p08_p1_t3 = MakePanel(panelDir, "p08_p1_t3", PanelType.Static,
+                caption: "T3: The Architect. The blueprint.");
+
+            var p08_p1_t4 = MakePanel(panelDir, "p08_p1_t4", PanelType.Static,
+                caption: "T4: The Exile at the horizon. Looking forward. Caption: \"The exile ends somewhere. The thread knows where.\"");
+
+            var p08_p1_t5 = MakePanel(panelDir, "p08_p1_t5", PanelType.Interact,
+                caption: "T5: The locked thread. The T5 node pulses for the first time. Not yet. But close.",
+                gutter: "On the other side of 'I don't know' is the only thing worth finding.");
+
+            var page08_1 = MakePage(pageDir, "page_08_1", PageLayout.Strip,
+                new[] { p08_p1_t1, p08_p1_t2, p08_p1_t3, p08_p1_t4, p08_p1_t5 });
+
+            // ── Page 2 — "Semantic Merge" (Puzzle: D4) ────────────────────────
+            var p08_p2_merge = MakePanel(panelDir, "p08_p2_merge", PanelType.Interact,
+                caption: "Five symbolic terms, each split across timelines. Merge each pair into its unified form.",
+                gutter: "The Ark isn't just a container. It's an instrument. These are its notes.",
+                archivistNote:
+                    "D4 Semantic Merge: STABILITY, CIRCUIT, CARRY, SEAL, COMPLETE. " +
+                    "Incorrect merge of CIRCUIT+SEAL produces an unstable form. Use the Symbolic Lens to distinguish.",
+                revealsKeys: keyTheFive != null ? new[] { keyTheFive } : new KnowledgeKeyData[0]);
+
+            var page08_2 = MakePage(pageDir, "page_08_2", PageLayout.FullBleed,
+                new[] { p08_p2_merge },
+                isFullBleed: true);
+
+            // ── Page 3 — "The Five-Page Overlay" (Puzzle: A4 5-page variant) ─
+            var p08_p3_overlayA = MakePanel(panelDir, "p08_p3_overlayA", PanelType.Static,
+                caption: "Page A: T1 Origins — descent, E.D.I.N., Limiter. Place it first.",
+                archivistNote: "A4 Overlay (5-page): all five timeline pages now available. Stack chronologically.");
+
+            var p08_p3_overlayB = MakePanel(panelDir, "p08_p3_overlayB", PanelType.Static,
+                caption: "Page B: T2 Cities — Sumer, Kemet, alignment.");
+
+            var p08_p3_overlayC = MakePanel(panelDir, "p08_p3_overlayC", PanelType.Static,
+                caption: "Page C: T3 Architect — blueprint, mirror-city.");
+
+            var p08_p3_overlayD = MakePanel(panelDir, "p08_p3_overlayD", PanelType.Static,
+                caption: "Page D: T4 Break — defacement, Exile, vault.");
+
+            var p08_p3_overlayE = MakePanel(panelDir, "p08_p3_overlayE", PanelType.Interact,
+                caption: "Page E: T5 — partially blank. The missing center. Align the triangle \u25b2 at center of all five.",
+                gutter: "Five layers. One structure. The composite forms a cross-section of Giza.");
+
+            var page08_3 = MakePage(pageDir, "page_08_3", PageLayout.FullBleed,
+                new[] { p08_p3_overlayA, p08_p3_overlayB, p08_p3_overlayC, p08_p3_overlayD, p08_p3_overlayE },
+                isFullBleed: true);
+
+            // ── Page 4 — "The Detective Board Speaks" ────────────────────────
+            var p08_p4_board = MakePanel(panelDir, "p08_p4_board", PanelType.Static,
+                caption: "I see it.",
+                gutter: "Now you know where to take it.",
+                archivistNote:
+                    "The Archive Notebook detective board completes itself. " +
+                    "The connection lines spontaneously form a pyramid silhouette. " +
+                    "Below it, in the Archivist's own handwriting: GIZA. " +
+                    "First appearance of the word in the game.");
+
+            var page08_4 = MakePage(pageDir, "page_08_4", PageLayout.FullBleed,
+                new[] { p08_p4_board },
+                entryTransition: PageTransition.GutterEntity,
+                isFullBleed: true);
+
+            // ── Page 5 — "T5 Threshold" (Unlock Sequence) ────────────────────
+            var p08_p5_map = MakePanel(panelDir, "p08_p5_map", PanelType.Static,
+                caption: "All nodes lit. Connection lines drawn. Pyramid silhouette at center. T5 node pulsing.");
+
+            var p08_p5_lock = MakePanel(panelDir, "p08_p5_lock", PanelType.Interact,
+                caption: "Combine five primary Knowledge Keys to unlock T5: SEQUENCE, CORRESPONDENCE, ALIGNMENT, RESTORATION, REVELATION.",
+                archivistNote: "Each key glows as it enters the central slot. T5 requires all five milestone keys.");
+
+            var p08_p5_t5lit = MakePanel(panelDir, "p08_p5_t5lit", PanelType.Static,
+                caption: "T5: The Missing Center. This is not a forgotten thread. It is the thread everything else was placed around.",
+                revealsKeys: keyCenter != null ? new[] { keyCenter } : new KnowledgeKeyData[0]);
+
+            var p08_p5_archivist = MakePanel(panelDir, "p08_p5_archivist", PanelType.Static,
+                caption: "I wasn't going to be this moved by a constellation map. Here we are.",
+                archivistNote: "CENTER key unlocked. T5 thread accessible in Issue 09.");
+
+            var page08_5 = MakePage(pageDir, "page_08_5", PageLayout.FourPanel,
+                new[] { p08_p5_map, p08_p5_lock, p08_p5_t5lit, p08_p5_archivist });
+
+            // ── Page 6 — "Scribe Maximum + Resonants Appear" ─────────────────
+            var p08_p6_scribe = MakePanel(panelDir, "p08_p6_scribe", PanelType.Stabilize,
+                caption: "Three panels simultaneously attacked. B1 Stabilize x3 sequence — rapid, 6s each.",
+                startsCorrupted: true, corruptionLevel: 1.0f,
+                puzzleStabilizeDuration: 6f);
+
+            var p08_p6_archivist = MakePanel(panelDir, "p08_p6_archivist", PanelType.Static,
+                caption: "This is a suppression attempt. They know what you just saw. They know you know.",
+                archivistNote: "Scribe maximum intervention: heaviest corruption event in the game.");
+
+            var p08_p6_resonants = MakePanel(panelDir, "p08_p6_resonants", PanelType.Static,
+                caption: "The Resonants. First contact.",
+                gutter: "Not today.",
+                archivistNote:
+                    "Third handwriting style appears in the margin \u2014 clean, precise, defiant. " +
+                    "The Resonants have been in the Archive longer than I have. " +
+                    "They are the readers who stayed.");
+
+            var page08_6 = MakePage(pageDir, "page_08_6", PageLayout.Strip,
+                new[] { p08_p6_scribe, p08_p6_archivist, p08_p6_resonants });
+
+            // ── Page 7 — "What Comes Next" ────────────────────────────────────
+            var p08_p7_09 = MakePanel(panelDir, "p08_p7_09", PanelType.Static,
+                caption: "Issue 09: Enter.",
+                archivistNote: "The Pyramid interior \u2014 lit, active, with open capstone slot.");
+
+            var p08_p7_10 = MakePanel(panelDir, "p08_p7_10", PanelType.Static,
+                caption: "Issue 10: Assemble.",
+                archivistNote: "The Ark, components scattered and one in the player's hand.");
+
+            var p08_p7_11 = MakePanel(panelDir, "p08_p7_11", PanelType.Static,
+                caption: "Issue 11: Complete.",
+                archivistNote: "A circuit of light connecting Ark to Pyramid, Djed pillar at center.");
+
+            var p08_p7_12 = MakePanel(panelDir, "p08_p7_12", PanelType.Static,
+                caption: "Issue 12: Place.",
+                gutter: "You built this. Every panel restored, every glyph recovered. You built it. Now finish it.");
+
+            var page08_7 = MakePage(pageDir, "page_08_7", PageLayout.FourPanel,
+                new[] { p08_p7_09, p08_p7_10, p08_p7_11, p08_p7_12 });
+
+            // ── Page 8 — "Issue 08 Complete: All Is Connected" ───────────────
+            var p08_p8_giza = MakePanel(panelDir, "p08_p8_giza", PanelType.Static,
+                caption: "GIZA. You know where to go. You know what to bring.",
+                gutter: "It was always this.",
+                archivistNote:
+                    "Issue 08 complete. T5 unlocked. Resonants introduced. " +
+                    "D4 Semantic Merge active. Giza named and confirmed. " +
+                    "All five timeline threads connected.");
+
+            var page08_8 = MakePage(pageDir, "page_08_8", PageLayout.FullBleed,
+                new[] { p08_p8_giza },
+                entryTransition: PageTransition.InkDive,
+                isFullBleed: true);
+
+            // ── Issue 08 SO ───────────────────────────────────────────────────
+            var issue08 = LoadOrCreate<IssueData>("Assets/ScriptableObjects/Issues/Issue_08.asset");
+            issue08.issueId              = "issue_08";
+            issue08.issueNumber          = 8;
+            issue08.title                = "Convergence Begins";
+            issue08.arc                  = "T4/T5 Threshold \u2014 Cross-Timeline Synthesis";
+            issue08.pages                = new[]
+            {
+                page08_1, page08_2, page08_3, page08_4,
+                page08_5, page08_6, page08_7, page08_8
+            };
+            issue08.prerequisiteIssueIds = new[] { "issue_07" };
+            issue08.unlocksLenses        = new LensType[0];
+            issue08.unlocksKeys          = new KnowledgeKeyData[0];
+            EditorUtility.SetDirty(issue08);
+
+            Debug.Log("[Archive] Issue 08 data built.");
+        }
+
+        // ── Issue 09 — "The Pyramid Page" ────────────────────────────────────────
+
+        private static void BuildIssue09()
+        {
+            string panelDir = "Assets/ScriptableObjects/Panels/Issue09";
+            string pageDir  = "Assets/ScriptableObjects/Pages/Issue09";
+
+            var keyFoundation = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_FOUNDATION.asset");
+            var keyAligned    = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_ALIGNED.asset");
+
+            // ── Page 1 — "Named Entrance" ─────────────────────────────────────
+            var p09_p1_gizagate = MakePanel(panelDir, "p09_p1_gizagate", PanelType.Static,
+                caption: "This is the page you've been reading toward.",
+                archivistNote:
+                    "\"GIZA\" carved into the cornerstone. Not an annotation. Not a caption. " +
+                    "Just: there. The complete map is in your hands.");
+
+            var p09_p1_entrance = MakePanel(panelDir, "p09_p1_entrance", PanelType.Static,
+                caption: "The entrance. Familiar from Issue 07, but now fully visible.",
+                gutter: "You named it. Now enter it. These are both the same act.");
+
+            var p09_p1_shaft = MakePanel(panelDir, "p09_p1_shaft", PanelType.Interact,
+                caption: "You have the full cross-section. Navigate inside.",
+                archivistNote: "C2 Shaft Labyrinth (three-level variant) begins.");
+
+            var page09_1 = MakePage(pageDir, "page_09_1", PageLayout.Strip,
+                new[] { p09_p1_gizagate, p09_p1_entrance, p09_p1_shaft },
+                entryTransition: PageTransition.InkDive);
+
+            // ── Page 2 — "Level 1: Ground Passage" ───────────────────────────
+            var p09_p2_level1 = MakePanel(panelDir, "p09_p2_level1", PanelType.Interact,
+                caption: "Ground level. Two shaft branches: descending (subterranean) and ascending (King's chamber).",
+                archivistNote:
+                    "Shaft doors appear: stone slabs with mechanism slots. " +
+                    "Technologic Lens reveals mechanism type. " +
+                    "Junction cardinal geometry aligns with the 15.5\u00b0 offset from Issue 06.");
+
+            var p09_p2_foundation = MakePanel(panelDir, "p09_p2_foundation", PanelType.Gutter,
+                caption: "Dead-end subterranean chamber. Something was here before the structure above it.",
+                gutter: "The foundation predates the monument. The monument is the argument for the foundation.",
+                revealsKeys: keyFoundation != null ? new[] { keyFoundation } : new KnowledgeKeyData[0]);
+
+            var page09_2 = MakePage(pageDir, "page_09_2", PageLayout.FullBleed,
+                new[] { p09_p2_level1, p09_p2_foundation },
+                isFullBleed: true);
+
+            // ── Page 3 — "Level 2: King's Chamber Return" ────────────────────
+            var p09_p3_chamber = MakePanel(panelDir, "p09_p3_chamber", PanelType.Static,
+                caption: "The central chamber in full context: its position in all three levels, shafts above and below.",
+                archivistNote: "The chamber is known. The context is new.");
+
+            var p09_p3_circuit = MakePanel(panelDir, "p09_p3_circuit", PanelType.Static,
+                caption: "The structure is a machine. The coffer is its center. The circuit runs everywhere.",
+                gutter: "The circuit is missing one node. The node is rectangular. The node has a name.",
+                archivistNote:
+                    "Spiritual Lens active: gold circuit threads run from the coffer outward through stone " +
+                    "connecting all shafts and chambers. Full circuit architecture visible for the first time.");
+
+            var p09_p3_coffer = MakePanel(panelDir, "p09_p3_coffer", PanelType.Static,
+                caption: "The circuit is incomplete. Something is missing from the coffer. Something specific. Something we know the shape of.",
+                archivistNote: "The coffer is empty. The rectangular void. The player now understands why it matters.");
+
+            var page09_3 = MakePage(pageDir, "page_09_3", PageLayout.Strip,
+                new[] { p09_p3_chamber, p09_p3_circuit, p09_p3_coffer });
+
+            // ── Page 4 — "Cardinal Alignment Final" (Puzzle: C1 Final) ────────
+            var p09_p4_c1 = MakePanel(panelDir, "p09_p4_c1", PanelType.Interact,
+                caption: "Four shafts. Four stellar targets. Adjust each shaft's angle using the 15.5\u00b0 offset at the correct historical epoch.",
+                gutter: "Every angle in this chamber was designed for this moment.",
+                archivistNote:
+                    "C1 Cardinal Alignment (final, hardest): Orion's Belt, Thuban, Alpha Draconis. " +
+                    "On completion: all four shafts align, light enters, the coffer responds. " +
+                    "Circuit diagram in Spiritual Lens resolves from partial to complete (capstone node still dark).",
+                revealsKeys: keyAligned != null ? new[] { keyAligned } : new KnowledgeKeyData[0]);
+
+            var page09_4 = MakePage(pageDir, "page_09_4", PageLayout.FullBleed,
+                new[] { p09_p4_c1 },
+                isFullBleed: true);
+
+            // ── Page 5 — "Level 3: The Apex Shaft" ───────────────────────────
+            var p09_p5_climb1 = MakePanel(panelDir, "p09_p5_climb1", PanelType.Stabilize,
+                caption: "Ascending the vertical shaft. The Scribes have corrupted sections of the passage. Stabilize.",
+                startsCorrupted: true, corruptionLevel: 0.6f,
+                puzzleStabilizeDuration: 3f);
+
+            var p09_p5_climb2 = MakePanel(panelDir, "p09_p5_climb2", PanelType.Stabilize,
+                caption: "Deeper corruption. The shaft narrows. Hold.",
+                startsCorrupted: true, corruptionLevel: 0.8f,
+                puzzleStabilizeDuration: 4f);
+
+            var p09_p5_capstone = MakePanel(panelDir, "p09_p5_capstone", PanelType.Static,
+                caption:
+                    "The capstone slot. Exact proportions. Exact orientation. Prepared. Waiting. " +
+                    "The only incomplete element in a structure otherwise finished to an inhuman precision.",
+                gutter: "Not yet level 3. First: the hardest stabilize.");
+
+            var p09_p5_climb3 = MakePanel(panelDir, "p09_p5_climb3", PanelType.Stabilize,
+                caption: "Final stabilize before the apex chamber. Very hard. The Scribes know what is above.",
+                startsCorrupted: true, corruptionLevel: 0.95f,
+                puzzleStabilizeDuration: 5f);
+
+            var page09_5 = MakePage(pageDir, "page_09_5", PageLayout.FullBleed,
+                new[] { p09_p5_climb1, p09_p5_climb2, p09_p5_capstone, p09_p5_climb3 },
+                isFullBleed: true);
+
+            // ── Page 6 — "The Capstone Slot" (E4 Preview) ────────────────────
+            var p09_p6_above = MakePanel(panelDir, "p09_p6_above", PanelType.Static,
+                caption: "From above: the slot is perfectly cut. No rough edges. Sky barely visible through it.");
+
+            var p09_p6_below = MakePanel(panelDir, "p09_p6_below", PanelType.Static,
+                caption: "From below: starlight enters the shaft at the correct angle.",
+                gutter: "The last panel hasn't been drawn yet. That's where you come in.");
+
+            var p09_p6_trace = MakePanel(panelDir, "p09_p6_trace", PanelType.Interact,
+                caption: "The slot requires a capstone. The capstone is not yet in your hands. But you know its shape. Trace it.",
+                archivistNote:
+                    "E4 Capstone Placement \u2014 INTRO. The tracing is saved. Puzzle marked: PENDING. " +
+                    "I know what goes here. I know where to find it. " +
+                    "Issue 10: the Ark. Issue 11: the connection. Issue 12: this moment.");
+
+            var page09_6 = MakePage(pageDir, "page_09_6", PageLayout.Strip,
+                new[] { p09_p6_above, p09_p6_below, p09_p6_trace });
+
+            // ── Page 7 — "Scribe Final + Resonants Counter" ───────────────────
+            var p09_p7_scribe = MakePanel(panelDir, "p09_p7_scribe", PanelType.Stabilize,
+                caption: "Maximum Scribe event. Apex chamber, King's chamber, and entry passage simultaneously. Stabilize chain.",
+                startsCorrupted: true, corruptionLevel: 1.0f,
+                puzzleStabilizeDuration: 6f);
+
+            var p09_p7_resonants = MakePanel(panelDir, "p09_p7_resonants", PanelType.Static,
+                caption: "The Resonants counter two of the three corrupted panels. You only need to stabilize one.",
+                archivistNote:
+                    "Resonants: second contact. Three figures visible in margins. " +
+                    "Margin note: 'The circuit architecture is now indexed by the Scribes. " +
+                    "They see the full diagram. They know it's close to complete. So do we. Finish this.'");
+
+            var p09_p7_alone = MakePanel(panelDir, "p09_p7_alone", PanelType.Static,
+                caption: "I'm not alone in here. I never was.",
+                gutter: "Corruption retreats. Something interrupted it.");
+
+            var p09_p7_next = MakePanel(panelDir, "p09_p7_next", PanelType.Static,
+                caption: "The Ark. The circuit. The capstone. Three movements. You know all the parts now.",
+                archivistNote: "Resonants second contact logged.");
+
+            var page09_7 = MakePage(pageDir, "page_09_7", PageLayout.FourPanel,
+                new[] { p09_p7_scribe, p09_p7_resonants, p09_p7_alone, p09_p7_next });
+
+            // ── Page 8 — "The Three-Level Map Completes" ─────────────────────
+            var p09_p8_crosssection = MakePanel(panelDir, "p09_p8_crosssection", PanelType.Static,
+                caption: "Complete. Except for the capstone. Except for the Ark. Two more things. Two issues. One placement.",
+                archivistNote:
+                    "Full Giza cross-section fills the page. All three levels mapped. " +
+                    "Constellation Map: T5-A and T5-B nodes now lit. T5-C next: Assembly.");
+
+            var page09_8 = MakePage(pageDir, "page_09_8", PageLayout.FullBleed,
+                new[] { p09_p8_crosssection },
+                isFullBleed: true);
+
+            // ── Page 9 — "Issue 09 Complete" ─────────────────────────────────
+            var p09_p9_closing = MakePanel(panelDir, "p09_p9_closing", PanelType.Static,
+                caption: "You have the map. You have one piece of the Ark. You know where it goes. Now get the rest.",
+                gutter: "GIZA is fully mapped. The circuit waits for its center. The slot waits for its capstone.");
+
+            var p09_p9_constellation = MakePanel(panelDir, "p09_p9_constellation", PanelType.Static,
+                caption: "Issue 09 complete. The Constellation Map shows three T5 nodes lit.",
+                archivistNote:
+                    "Issue 09 complete. Full Giza cross-section in Archive Notebook. " +
+                    "Circuit architecture diagram (Spiritual Lens). " +
+                    "E4 Capstone Placement: PENDING. T5-A and T5-B lit.");
+
+            var page09_9 = MakePage(pageDir, "page_09_9", PageLayout.TwoPanel,
+                new[] { p09_p9_closing, p09_p9_constellation },
+                entryTransition: PageTransition.InkDive);
+
+            // ── Issue 09 SO ───────────────────────────────────────────────────
+            var issue09 = LoadOrCreate<IssueData>("Assets/ScriptableObjects/Issues/Issue_09.asset");
+            issue09.issueId              = "issue_09";
+            issue09.issueNumber          = 9;
+            issue09.title                = "The Pyramid Page";
+            issue09.arc                  = "T5 Cluster \u2014 A/B: Entry + Interior";
+            issue09.pages                = new[]
+            {
+                page09_1, page09_2, page09_3, page09_4,
+                page09_5, page09_6, page09_7, page09_8, page09_9
+            };
+            issue09.prerequisiteIssueIds = new[] { "issue_08" };
+            issue09.unlocksLenses        = new LensType[0];
+            issue09.unlocksKeys          = new KnowledgeKeyData[0];
+            EditorUtility.SetDirty(issue09);
+
+            Debug.Log("[Archive] Issue 09 data built.");
+        }
+
+        // ── Issue 10 — "The Artifact Page" ───────────────────────────────────────
+
+        private static void BuildIssue10()
+        {
+            string panelDir = "Assets/ScriptableObjects/Panels/Issue10";
+            string pageDir  = "Assets/ScriptableObjects/Pages/Issue10";
+
+            var keySame       = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_SAME.asset");
+            var keyComplete   = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_COMPLETE_INSTRUMENT.asset");
+            var keyCarried    = AssetDatabase.LoadAssetAtPath<KnowledgeKeyData>(
+                "Assets/ScriptableObjects/Keys/Key_CARRIED.asset");
+
+            // ── Page 1 — "T5-C Entry: The Scattered Ark" ─────────────────────
+            var p10_p1_t5c = MakePanel(panelDir, "p10_p1_t5c", PanelType.Static,
+                caption: "T5-C: Assembly. The components were never in the same place.",
+                archivistNote: "T5-C constellation node pulses.");
+
+            var p10_p1_inventory = MakePanel(panelDir, "p10_p1_inventory", PanelType.Static,
+                caption: "Ark Inventory: 1/4 poles. Three empty slots. Three ghost-outlines: a pole, the chest body, the mercy seat.",
+                archivistNote: "The Ark was distributed intentionally. Waiting for reassembly. For the right reader.");
+
+            var p10_p1_archivist = MakePanel(panelDir, "p10_p1_archivist", PanelType.Static,
+                caption: "The Ark's components traveled through different hands, different timelines.",
+                gutter: "Three shards. Any order. Tap each ghost outline to begin.");
+
+            var p10_p1_shards = MakePanel(panelDir, "p10_p1_shards", PanelType.Interact,
+                caption: "Tap each ghost outline to activate the recovery sequence for that component.",
+                archivistNote: "Three shard paths: Shard A (second pole), Shard B (chest), Shard C (mercy seat). Order is free.");
+
+            var page10_1 = MakePage(pageDir, "page_10_1", PageLayout.FourPanel,
+                new[] { p10_p1_t5c, p10_p1_inventory, p10_p1_archivist, p10_p1_shards });
+
+            // ── Page 2 — "Shard A: The Second Pole" ──────────────────────────
+            var p10_p2_cache = MakePanel(panelDir, "p10_p2_cache", PanelType.Static,
+                caption: "A desert storage cache, ancient. Sealed stone. The Resonants' symbol carved faintly on the seal.",
+                archivistNote: "The Resonants preserved it. Waiting until someone finished the other threads.");
+
+            var p10_p2_stabilize = MakePanel(panelDir, "p10_p2_stabilize", PanelType.Stabilize,
+                caption: "Scribe interference has corrupted the cache panel. Stabilize to clear.",
+                gutter: "Second pole recovered. Ark Inventory: 2/4.",
+                startsCorrupted: true, corruptionLevel: 0.6f,
+                puzzleStabilizeDuration: 3f);
+
+            var page10_2 = MakePage(pageDir, "page_10_2", PageLayout.TwoPanel,
+                new[] { p10_p2_cache, p10_p2_stabilize });
+
+            // ── Page 3 — "Shard B: Chest Body + Identity Node Resolved" ───────
+            var p10_p3_exile = MakePanel(panelDir, "p10_p3_exile", PanelType.Static,
+                caption: "The Exile, older now, having traveled far. They lower a wrapped object beside a stone marker.",
+                archivistNote:
+                    "T4-B revisited. The carried thing and the carrier were the same story, opposite ends.");
+
+            var p10_p3_unwrap = MakePanel(panelDir, "p10_p3_unwrap", PanelType.Static,
+                caption: "The wrapped object, unwrapped: the chest body. Confirmed. The Identity Node from Issue 05 flashes \u2014 the lock opens.",
+                gutter: "Two stories, one person. The Scribes split the record. The record is now whole.");
+
+            var p10_p3_node = MakePanel(panelDir, "p10_p3_node", PanelType.Interact,
+                caption: "The identity is now confirmed. Complete the node. Place the merged single glyph between the two figure-portraits.",
+                archivistNote:
+                    "D3 Identity Node \u2014 RESOLVED. Two figures unite into a single portrait with both role symbols. " +
+                    "The exile carried the Ark. The cycle was always going to end this way.",
+                revealsKeys: keySame != null ? new[] { keySame } : new KnowledgeKeyData[0]);
+
+            var page10_3 = MakePage(pageDir, "page_10_3", PageLayout.Strip,
+                new[] { p10_p3_exile, p10_p3_unwrap, p10_p3_node });
+
+            // ── Page 4 — "Shard C: The Mercy Seat" ───────────────────────────
+            var p10_p4_school = MakePanel(panelDir, "p10_p4_school", PanelType.Static,
+                caption: "T3-B: A hidden chamber beneath the Mystery School. The Architect placed this here.",
+                archivistNote:
+                    "The lid guarded through the eras of Scribe defacement by the school structures. " +
+                    "Two winged figures on the lid, wings touching.");
+
+            var p10_p4_glyph = MakePanel(panelDir, "p10_p4_glyph", PanelType.Interact,
+                caption: "A D1 Glyph chain step required to open the chamber. The access glyph from Issue 04.",
+                gutter: "Mercy Seat recovered. Ark Inventory: 4/4. Complete.",
+                archivistNote: "D1 Glyph (one step): access glyph recognizable from Issue 04's Glyph Evolution chain.");
+
+            var page10_4 = MakePage(pageDir, "page_10_4", PageLayout.TwoPanel,
+                new[] { p10_p4_school, p10_p4_glyph });
+
+            // ── Page 5 — "Ark Assembly" (Puzzle: E1 Full) ────────────────────
+            var p10_p5_assembly = MakePanel(panelDir, "p10_p5_assembly", PanelType.Interact,
+                caption: "All four components present. Poles first. Then chest. Then lid. Each snaps with a distinct sound: tap, two-tone, resonant thud, chime-chord.",
+                gutter: "All five abilities are now accessible. I'm not sure I understand what most of them do yet. That's alright. The Ark seems to.",
+                archivistNote:
+                    "E1 Ark Assembly (full). Completion moment: two winged figures face each other, " +
+                    "wingspan tips touching at center. Ark glows warm under Spiritual Lens for 1.2s. " +
+                    "Technologic shows circuit connections activating. Symbolic shows symbol network completing.",
+                revealsKeys: keyComplete != null ? new[] { keyComplete } : new KnowledgeKeyData[0]);
+
+            var page10_5 = MakePage(pageDir, "page_10_5", PageLayout.FullBleed,
+                new[] { p10_p5_assembly },
+                isFullBleed: true);
+
+            // ── Page 6 — "Ark Abilities: First Active Use" ───────────────────
+            var p10_p6_seal = MakePanel(panelDir, "p10_p6_seal", PanelType.Interact,
+                caption: "Seal Burn: the Ark dissolves a Scribe-locked panel. A hidden Resonant location opens.",
+                archivistNote: "Ability 1 of 5 demonstrated.");
+
+            var p10_p6_scan = MakePanel(panelDir, "p10_p6_scan", PanelType.Interact,
+                caption: "Scan: hidden text in the Architect's original glyph system becomes visible. A previously unreadable fragment now readable.",
+                archivistNote: "Ability 2 of 5 demonstrated.");
+
+            var p10_p6_circuit = MakePanel(panelDir, "p10_p6_circuit", PanelType.Interact,
+                caption: "Circuit Link: two panels from different eras with matching symbols connected. A new constellation node lights.",
+                archivistNote: "Ability 3 of 5 demonstrated.");
+
+            var p10_p6_gutter = MakePanel(panelDir, "p10_p6_gutter", PanelType.Interact,
+                caption: "Gutter Step: enter a Gutter Door through a corrupted barrier from a distance.",
+                archivistNote: "Ability 4 of 5 demonstrated.");
+
+            var p10_p6_caplock = MakePanel(panelDir, "p10_p6_caplock", PanelType.Static,
+                caption: "Capstone Lock: locked. Requires capstone placement.",
+                gutter: "Ability 5 of 5 is the last act. Issue 12.",
+                archivistNote: "Fifth ability locked pending E4 Capstone Placement in Issue 12.");
+
+            var page10_6 = MakePage(pageDir, "page_10_6", PageLayout.Strip,
+                new[] { p10_p6_seal, p10_p6_scan, p10_p6_circuit, p10_p6_gutter, p10_p6_caplock });
+
+            // ── Page 7 — "Carry Constraint" (Puzzle: E2 Full) ────────────────
+            var p10_p7_carry = MakePanel(panelDir, "p10_p7_carry", PanelType.Interact,
+                caption: "Two-finger drag: one finger per pole. Maintain parallel grip. Navigate 7 checkpoints to the Giza approach.",
+                gutter: "Carry it home.",
+                archivistNote:
+                    "E2 Carry Constraint (full). Narrow passages require orientation changes. " +
+                    "Brief one-handed stabilize required mid-carry at Scribe corruption events. " +
+                    "As the Ark approaches Giza: circuit architecture (Spiritual Lens) begins to glow.",
+                revealsKeys: keyCarried != null ? new[] { keyCarried } : new KnowledgeKeyData[0]);
+
+            var page10_7 = MakePage(pageDir, "page_10_7", PageLayout.FullBleed,
+                new[] { p10_p7_carry },
+                isFullBleed: true);
+
+            // ── Page 8 — "Issue 10 Complete: The Ark Is Whole and Moving" ────
+            var p10_p8_arrive = MakePanel(panelDir, "p10_p8_arrive", PanelType.Static,
+                caption: "The Ark at the Giza entrance. The structure's entrance glowing. The circuit needs only two more elements: the Ark in position, and the capstone sealed.",
+                archivistNote:
+                    "Ark diagram fully filled in. Identity Node complete. Constellation map: T5-C lit. T5-D next: The Circuit.");
+
+            var p10_p8_notebook = MakePanel(panelDir, "p10_p8_notebook", PanelType.Static,
+                caption: "The Ark is whole. The exile is resolved. Giza is waiting.",
+                gutter: "All four Ark abilities active. The fifth waits for Issue 12.",
+                archivistNote: "Issue 10 complete. E2 Carry Constraint complete. D3 Identity Node fully resolved.");
+
+            var page10_8 = MakePage(pageDir, "page_10_8", PageLayout.TwoPanel,
+                new[] { p10_p8_arrive, p10_p8_notebook },
+                entryTransition: PageTransition.InkDive);
+
+            // ── Issue 10 SO ───────────────────────────────────────────────────
+            var issue10 = LoadOrCreate<IssueData>("Assets/ScriptableObjects/Issues/Issue_10.asset");
+            issue10.issueId              = "issue_10";
+            issue10.issueNumber          = 10;
+            issue10.title                = "The Artifact Page";
+            issue10.arc                  = "T5 Cluster \u2014 C: Assembly";
+            issue10.pages                = new[]
+            {
+                page10_1, page10_2, page10_3, page10_4,
+                page10_5, page10_6, page10_7, page10_8
+            };
+            issue10.prerequisiteIssueIds = new[] { "issue_09" };
+            issue10.unlocksLenses        = new LensType[0];
+            issue10.unlocksKeys          = new KnowledgeKeyData[0];
+            EditorUtility.SetDirty(issue10);
+
+            Debug.Log("[Archive] Issue 10 data built.");
         }
 
         // ── Panel / Page factory helpers ──────────────────────────────────────────

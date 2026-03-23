@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p10_p5_assembly
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p10_p5_assembly
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: 'All four components present. Poles first. Then chest. Then lid. Each
+    snaps with a distinct sound: tap, two-tone, resonant thud, chime-chord.'
+  archivistNote: 'E1 Ark Assembly (full). Completion moment: two winged figures face
+    each other, wingspan tips touching at center. Ark glows warm under Spiritual
+    Lens for 1.2s. Technologic shows circuit connections activating. Symbolic shows
+    symbol network completing.'
+  gutterText: All five abilities are now accessible. I'm not sure I understand what
+    most of them do yet. That's alright. The Ark seems to.
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys:
+  - {fileID: 11400000, guid: c3911d2165c46484b9ec53ef3290aa7f, type: 2}
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

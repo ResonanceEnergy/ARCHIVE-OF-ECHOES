@@ -80,12 +80,12 @@ Build the minimum playable loop:
 
 ---
 
-## Phase 3 — Convergence Arc (Issues 08–10)
+## Phase 3 — Convergence Arc (Issues 08–10) ✅ COMPLETE
 
-- [ ] Convergence Begins (Issue 08) — pyramid silhouette forms
-- [ ] The Pyramid Page (Issue 09) — Giza dungeon unlocks
-- [ ] The Artifact Page (Issue 10) — Ark assembly begins
-- [ ] Ark as tool system (Seal Burn, Resonance Scan, Circuit Link)
+- [x] Convergence Begins (Issue 08) — pyramid silhouette forms, Giza named, T5 unlocked, Resonants first contact
+- [x] The Pyramid Page (Issue 09) — Giza interior mapped 3 levels, C1 final alignment, capstone slot previewed
+- [x] The Artifact Page (Issue 10) — Ark fully assembled (E1), Carry Constraint (E2), Identity Node resolved (D3)
+- [x] Ark as tool system (Seal Burn, Resonance Scan, Circuit Link, Gutter Step, Capstone Lock preview)
 - [ ] "Defacement" enemy mechanic
 - [ ] Pyramid hub scene (persistent restoration progress)
 

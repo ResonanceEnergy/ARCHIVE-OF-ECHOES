@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p10_p7_carry
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p10_p7_carry
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: 'Two-finger drag: one finger per pole. Maintain parallel grip. Navigate
+    7 checkpoints to the Giza approach.'
+  archivistNote: 'E2 Carry Constraint (full). Narrow passages require orientation
+    changes. Brief one-handed stabilize required mid-carry at Scribe corruption events.
+    As the Ark approaches Giza: circuit architecture (Spiritual Lens) begins to glow.'
+  gutterText: Carry it home.
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys:
+  - {fileID: 11400000, guid: de065a3d8e093fe4d8edd3d7b78da6d5, type: 2}
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

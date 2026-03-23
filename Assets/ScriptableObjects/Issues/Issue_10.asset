@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_10
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_10
+  issueNumber: 10
+  title: The Artifact Page
+  arc: "T5 Cluster \u2014 C: Assembly"
+  pages:
+  - {fileID: 11400000, guid: fe5c6bc7e46408843b9b3333466b6f31, type: 2}
+  - {fileID: 11400000, guid: 0dce8774bf6eae543817be7bece8abba, type: 2}
+  - {fileID: 11400000, guid: dd7520ff71d45664f839e93799d137f5, type: 2}
+  - {fileID: 11400000, guid: 2def391d247dcc74cae00a7bedb989ef, type: 2}
+  - {fileID: 11400000, guid: 9f77c13bebe5d84489508a3198ce10df, type: 2}
+  - {fileID: 11400000, guid: b727637635066d24bb4582ae3ea0d6dd, type: 2}
+  - {fileID: 11400000, guid: 4acff2d6b1d45114898af2c2479c8956, type: 2}
+  - {fileID: 11400000, guid: 079629fdade88be4591692e6c3a1f110, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_09
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

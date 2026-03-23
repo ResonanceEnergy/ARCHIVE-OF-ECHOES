@@ -933,6 +933,154 @@ ASSETS = [
             "the Ark is complete except for the single missing carrying pole — its ghost-outline on the chamber floor"
         ),
     },
+    # ── Issue 08 — Convergence Begins ─────────────────────────────────────────
+    {
+        "id": "i08_p1_convergence",
+        "path": "Assets/Art/Panels/Issue08/p08_p1_convergence.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "full portrait horizontal panorama showing all five timeline eras as minimal strip panels left to right: "
+            "T1 descent — Anunnaki craft descending over Eridu in deep indigo night sky, "
+            "T2 cities — Sumerian grid city in golden ochre daylight, "
+            "T3 architect — cloaked figure at blueprint table in warm amber lamplight, "
+            "T4 exile — wrapped figure at desert horizon carrying a bundled object in faded sepia dusk, "
+            "T5 center — pure white void with a single pulsing warm gold node at center of the frame, "
+            "all five eras separated by thin black gutter lines like a classic comic strip, "
+            "the white T5 space visually pulls the viewer's gaze inward to the center, "
+            "Egyptian inspired semi-realistic comic style, rich color contrast between eras"
+        ),
+    },
+    {
+        "id": "i08_p4_gizaword",
+        "path": "Assets/Art/Panels/Issue08/p08_p4_detective.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Archive Notebook detective board filling the full page — thread lines connecting symbols and glyph nodes: "
+            "handwritten notes, circled glyphs, timeline markers, all connected by coloured threads pinned across the page, "
+            "the accumulated shape of all the connection threads together forms a perfect pyramid silhouette, "
+            "at the apex of the pyramid formed by the thread lines, written in fresh Archivist ink, "
+            "the single word GIZA in clean block capitals — not typed, not captioned, hand-written, "
+            "paper grain notebook texture, Egyptian comic stylization, ink on aged paper aesthetic, "
+            "the handwriting has the slightly shaky quality of someone writing in genuine recognition"
+        ),
+    },
+    {
+        "id": "i08_p5_t5unlock",
+        "path": "Assets/Art/Panels/Issue08/p08_p5_t5unlock.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Archive Constellation Map showing all timeline nodes now fully lit in warm gold: "
+            "five timeline clusters connected by complete glowing thread lines forming a full network across the page, "
+            "at the center of the map the connection lines converge to form a perfect pyramid silhouette, "
+            "at the pyramid's apex: the T5 node — previously shown as dark and empty — now blazing in complex warm amber-gold, "
+            "five Knowledge Key symbols arranged around the T5 node like a crown of light, "
+            "the T5 node is clearly different from the others — warmer, deeper, already complete, "
+            "Egyptian semi-realistic comic style, deep indigo background, golden constellation lines"
+        ),
+    },
+    # ── Issue 09 — The Pyramid Page ───────────────────────────────────────────
+    {
+        "id": "i09_p1_gizagate",
+        "path": "Assets/Art/Panels/Issue09/p09_p1_gizagate.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "the Giza Plateau exterior in tall portrait orientation at dawn, seen fully named for the first time: "
+            "the pyramid structure fills the upper two-thirds of the frame, massive and mathematically exact, "
+            "at the base cornerstone in deep relief an ancient inscription carved into stone: the word GIZA — not annotated, carved, "
+            "the primary entrance passage is visible at ground level, a beam of golden light exits a shaft aperture, "
+            "a small Archivist figure stands at the threshold, dwarfed by the scale of the structure, "
+            "Egyptian semi-realistic comic style, dramatic deep shadow and warm sunrise gold from the east, "
+            "the scale contrast between the small figure and the massive structure is the key emotional beat"
+        ),
+    },
+    {
+        "id": "i09_p3_circuit",
+        "path": "Assets/Art/Panels/Issue09/p09_p3_circuit.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the King's Chamber interior of Giza visualized under Spiritual lens — the circuit architecture fully revealed: "
+            "a rectangular granite chamber with the empty granite coffer at its exact center, "
+            "fine gold-green luminous thread lines radiate outward from the coffer through the stone walls in all directions, "
+            "the threads glow Spiritual emerald, connecting all four shaft openings on the walls and ceiling, "
+            "the complete circuit diagram is visible as a glowing network within the stone, "
+            "the coffer itself is a perfect rectangular void at the circuit's center — nothing inside, "
+            "Egyptian semi-realistic comic style, the chamber lit only by the circuit glow, "
+            "beautiful and precise — built to receive something the circuit has clearly been waiting for"
+        ),
+    },
+    {
+        "id": "i09_p5_capslot",
+        "path": "Assets/Art/Panels/Issue09/p09_p5_capslot.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the apex chamber below the capstone slot, looking upward at the triangular opening in the ceiling: "
+            "through the triangular slot a patch of starlit night sky is perfectly framed, "
+            "starlight enters at a precise angle through the slot, casting a geometrically perfect beam downward, "
+            "the slot edges are cut stone with machined precision — no rough edges, clean right angles, "
+            "measurement markings subtly encoded in the surrounding stone frame, "
+            "warm golden ascending light from the shaft below meeting cold blue-white starlight from above, "
+            "the empty slot is a void in an otherwise perfectly finished structure — the one incomplete element, "
+            "Egyptian semi-realistic comic style, strong contrast between warm ascending and cold descending light"
+        ),
+    },
+    # ── Issue 10 — The Artifact Page ──────────────────────────────────────────
+    {
+        "id": "i10_p5_assembly",
+        "path": "Assets/Art/Panels/Issue10/p10_p5_assembly.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "the Ark of the Covenant fully assembled — the completion moment rendered in portrait: "
+            "the golden chest body with two carrying poles perfectly parallel on each side, "
+            "the mercy seat lid seated exactly flush on the chest, "
+            "two winged cherubim figures face each other, their wing-tips touching at the center above the lid — the completion gesture, "
+            "the assembled Ark glows simultaneously through all five lens readings: "
+            "Mythic gold divine light from within, Technologic teal circuit connections activating on the gold surface, "
+            "Symbolic purple symbol rings completing around the perimeter, "
+            "Political red seal glow indicating authority confirmed, "
+            "Spiritual emerald warmth radiating outward filling the frame, "
+            "all five lens auras visible at once — the first time in the game this has occurred, "
+            "Egyptian semi-realistic comic style, the Ark is the undisputed center of the image"
+        ),
+    },
+    {
+        "id": "i10_p3_identity",
+        "path": "Assets/Art/Panels/Issue10/p10_p3_identity.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "Identity Node resolution panel — two timelines converging into one truth: "
+            "the ancient exile figure at the end of their journey, older and travel-worn, desert dust on their cloak, "
+            "setting down a rectangular wrapped object beside a stone desert marker at dusk, "
+            "a small inset panel in the corner shows two figure-portraits from earlier issues — "
+            "a bridge glyph symbol between them resolving into a single merged glyph that unites both portraits, "
+            "the wrapped object begins to unwrap in sequence — the golden chest body of the Ark revealed beneath, "
+            "warm desert gold light, emotional weight, Egyptian semi-realistic comic style, "
+            "the image carries the weight of something that was always true finally being acknowledged"
+        ),
+    },
+    {
+        "id": "i10_p7_carry",
+        "path": "Assets/Art/Panels/Issue10/p10_p7_carry.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Ark being carried toward Giza on its two golden carrying poles — the carry stance: "
+            "two pairs of hands grip the poles in perfect parallel, one hand per pole, the two-bearer carry, "
+            "the Ark gleams golden between the poles, its weight implied by the careful forward posture of the bearers, "
+            "the Giza approach stone plaza ahead — pyramid entrance visible in the far background, "
+            "as the Ark nears the structure, the circuit architecture from Issue 09 begins glowing in the stone pathway ahead, "
+            "responding to the Ark's presence before any physical contact, "
+            "warm gold light from the Ark and cool circuit-green glow from the responding stone path, "
+            "Egyptian semi-realistic comic style, the moment should feel like weight and purpose and arrival"
+        ),
+    },
 ]
 
 

@@ -56,5 +56,14 @@
   "i06_p6_pyramid": "Assets/Art/Panels/Issue06/p06_p6_pyramid.png",
   "i07_p1_passage": "Assets/Art/Panels/Issue07/p07_p1_passage.png",
   "i07_p2_labyrinth": "Assets/Art/Panels/Issue07/p07_p2_labyrinth.png",
-  "i07_p4_ark": "Assets/Art/Panels/Issue07/p07_p4_ark.png"
+  "i07_p4_ark": "Assets/Art/Panels/Issue07/p07_p4_ark.png",
+  "i08_p1_convergence": "Assets/Art/Panels/Issue08/p08_p1_convergence.png",
+  "i08_p4_gizaword": "Assets/Art/Panels/Issue08/p08_p4_detective.png",
+  "i08_p5_t5unlock": "Assets/Art/Panels/Issue08/p08_p5_t5unlock.png",
+  "i09_p1_gizagate": "Assets/Art/Panels/Issue09/p09_p1_gizagate.png",
+  "i09_p3_circuit": "Assets/Art/Panels/Issue09/p09_p3_circuit.png",
+  "i09_p5_capslot": "Assets/Art/Panels/Issue09/p09_p5_capslot.png",
+  "i10_p5_assembly": "Assets/Art/Panels/Issue10/p10_p5_assembly.png",
+  "i10_p3_identity": "Assets/Art/Panels/Issue10/p10_p3_identity.png",
+  "i10_p7_carry": "Assets/Art/Panels/Issue10/p10_p7_carry.png"
 }
