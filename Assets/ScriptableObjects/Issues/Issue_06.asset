@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_06
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_06
+  issueNumber: 6
+  title: Mirror Site
+  arc: "T5 \u2014 The Shape on the Horizon"
+  pages:
+  - {fileID: 11400000, guid: 88575faf44fa636469846054d0c14cb4, type: 2}
+  - {fileID: 11400000, guid: e93f24a27d63caf4791f2cd86d8287e8, type: 2}
+  - {fileID: 11400000, guid: c409e10bbdb3287429d826e450f7d3ed, type: 2}
+  - {fileID: 11400000, guid: daaab0418f64f354b9a8bd6fc33b7bf1, type: 2}
+  - {fileID: 11400000, guid: 32518737b4024a34e9739b2256985204, type: 2}
+  - {fileID: 11400000, guid: f7f89e8f6ead1674c8cf2bd90ecea8db, type: 2}
+  - {fileID: 11400000, guid: ff526f2c672eb5f4190803ab6f02c8ac, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_05
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

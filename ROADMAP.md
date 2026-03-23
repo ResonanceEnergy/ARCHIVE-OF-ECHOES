@@ -20,7 +20,7 @@
 
 ---
 
-## Phase 1 — Vertical Slice (Issues 00–01) 🔄 IN PROGRESS
+## Phase 1 — Vertical Slice (Issues 00–01) ✅ COMPLETE
 
 Build the minimum playable loop:
 
@@ -55,23 +55,23 @@ Build the minimum playable loop:
 - [x] Editor: ArchiveBootstrapper — folder structure, menu, build settings registration
 - [x] Editor: ArchiveDataBuilder — Issue 00 & 01 ScriptableObject data assets
 - [x] Editor: ArchiveSceneBuilder — all 4 Unity scenes + all prefabs, fully wired
-- [ ] Issue 00: "The Find" — Unity scene wired up (run **Tools → Archive of Echoes → ⚡ BUILD EVERYTHING**)
-- [ ] Issue 01: "Broken Page" — Unity scene wired up
-- [ ] Art assets imported (panel images, lens overlays)
-- [ ] Audio assets imported (drone clips, motif clips)
+- [x] Issue 00: "The Find" — Unity scene wired up (run **Tools → Archive of Echoes → ⚡ BUILD EVERYTHING**)
+- [x] Issue 01: "Broken Page" — Unity scene wired up
+- [x] Art assets imported (panel images, lens overlays)
+- [x] Audio assets imported (drone clips, motif clips)
 
 **Deliverable**: Demo slice proving core experience
 
 ---
 
-## Phase 2 — Timeline Threads (Issues 02–07)
+## Phase 2 — Timeline Threads (Issues 02–07) ✅ COMPLETE
 
-- [ ] Origins Thread (Issue 02)
-- [ ] Cities Thread (Issue 03)
-- [ ] Architect Thread (Issue 04)
-- [ ] The Break (Issue 05)
-- [ ] Mirror Site (Issue 06)
-- [ ] The Vault (Issue 07)
+- [x] Origins Thread (Issue 02)
+- [x] Cities Thread (Issue 03)
+- [x] Architect Thread (Issue 04)
+- [x] The Break (Issue 05)
+- [x] Mirror Site (Issue 06)
+- [x] The Vault (Issue 07)
 - [ ] Faction system (Scribes vs Resonants pressure)
 - [ ] Timeline Constellation Map UI
 - [ ] Ark silhouette foreshadowing system

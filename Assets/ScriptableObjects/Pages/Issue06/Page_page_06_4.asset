@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e60622f104f8f4994d57f7b3d096c9, type: 3}
+  m_Name: Page_page_06_4
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PageData
+  pageId: page_06_4
+  panels:
+  - {fileID: 11400000, guid: 1786d2008cbc17f43bdc6351a7ec90ff, type: 2}
+  - {fileID: 11400000, guid: f2101bff5ed7a8048925c94e1e4d0a3c, type: 2}
+  - {fileID: 11400000, guid: 8c3f934f5989f2949b0498288d313389, type: 2}
+  - {fileID: 11400000, guid: 995ee5b605f1da14d81838a4545b4401, type: 2}
+  layout: 0
+  entryTransition: 0
+  isFullBleed: 0

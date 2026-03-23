@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_07
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_07
+  issueNumber: 7
+  title: The Vault
+  arc: "T6 \u2014 The Center of the Structure"
+  pages:
+  - {fileID: 11400000, guid: 9163e334a0f071e449a15ea5e137b2ec, type: 2}
+  - {fileID: 11400000, guid: c1e99ed26494a7f4fb8405195edffaf7, type: 2}
+  - {fileID: 11400000, guid: 63943d881f467794b948aef186ba6106, type: 2}
+  - {fileID: 11400000, guid: 6544613de681f414c9e6c2cd34c1a764, type: 2}
+  - {fileID: 11400000, guid: df7ccf9b55b5094478dabf559b98ec20, type: 2}
+  - {fileID: 11400000, guid: 4441f84b6845cbc47afa000699054b6f, type: 2}
+  - {fileID: 11400000, guid: 5cef0d7512a1eb34dbdb917f03d76f25, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_06
+  unlocksLenses: 
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p07_p2_labyrinth
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p07_p2_labyrinth
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: 'Navigate the shaft. Two lenses required: Technologic for shaft angles,
+    Symbolic for junction markers.'
+  archivistNote: 'C2 Shaft Labyrinth: main path reveals PASSAGE key. Alternate shaft
+    (dead end) reveals DESCENT key. Hidden chamber contains Ink Restore diagram (B2
+    puzzle, Page 5).'
+  gutterText: There is a chamber at the center. You earn it by reading the geometry.
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys:
+  - {fileID: 11400000, guid: b5ac1821466a32c4abde7503d0601fbd, type: 2}
+  - {fileID: 11400000, guid: ba9b0ec8ac720dc47a3424a8bd948272, type: 2}
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0

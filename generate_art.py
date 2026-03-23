@@ -26,12 +26,19 @@ Requirements:
 """
 
 import argparse
+import io
 import json
 import os
 import sys
 import time
 import urllib.request
 from pathlib import Path
+
+# ── Windows cp1252 fix ─────────────────────────────────────────────────────────
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+if sys.stderr.encoding and sys.stderr.encoding.lower() != "utf-8":
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
@@ -637,6 +644,293 @@ ASSETS = [
             "sacred geometry pentagon pattern subtly traced between the five points, "
             "dark background brightening slightly toward outer ring edge, "
             "flat UI graphic, no text, pure interface geometry"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 02 — "Origins Thread"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i02_p1_splash",
+        "path": "Assets/Art/Panels/Issue02/p02_p1_splash.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "full-page portrait splash: a massive Anunnaki craft descending through amber-violet atmosphere "
+            "toward the ancient Mesopotamian floodplain below, Eridu city lights beginning to form on the plain, "
+            "the craft ancient beyond the word for sky, metallic and enormous, reflected in the Tigris and Euphrates rivers, "
+            "dawn light from below catching the hull, cosmic arrival scene, overwhelming scale"
+        ),
+    },
+    {
+        "id": "i02_p3_edin",
+        "path": "Assets/Art/Panels/Issue02/p02_p3_isis.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the goddess Isis in ancient Egyptian regalia standing in the E.D.I.N. garden enclosure, "
+            "an impossibly perfect managed garden: bioluminescent plants, ordered symmetry, glowing irrigation channels, "
+            "Isis holds a luminous scroll-tablet showing biological diagrams and constellation maps, "
+            "her expression: custodial authority, not worship, she tends the record not the soil, "
+            "gold and turquoise divine light throughout, ancient temple walls with precise glyph inscriptions surrounding the garden"
+        ),
+    },
+    {
+        "id": "i02_p6_limiter",
+        "path": "Assets/Art/Panels/Issue02/p02_p6_limiter.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a glowing schematic panel rendered in Technologic Lens teal-blue: two DNA helical strands "
+            "where a specification diagram shows space for many more, "
+            "the reduction point clearly marked with a glowing MODIFICATION glyph, "
+            "ancient hieroglyphic technical annotations surrounding the diagram, "
+            "the cutting point circled and marked with political red seal-stamp symbols, "
+            "a deliberate engineering ceiling made visible, unsettling clinical precision"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 03 — "Cities Thread"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i03_p1_gridlines",
+        "path": "Assets/Art/Panels/Issue03/p03_p1_gridlines.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "aerial overhead view of the ancient Sumerian floodplain with a perfect geometric survey grid "
+            "already staked into the ground before any structure exists, "
+            "wooden survey stakes with taut geometric lines forming a precise city blueprint below, "
+            "surveyors in ancient Mesopotamian clothing placing measurements, "
+            "the grid exists before the city: the plan precedes all construction, "
+            "golden morning light, river glinting in distance, cosmic precision in ancient hands"
+        ),
+    },
+    {
+        "id": "i03_p4_overlay",
+        "path": "Assets/Art/Panels/Issue03/p03_p4_overlay.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "two translucent city plan drawings overlaid on each other like tracing paper, "
+            "the Sumer grid and the Kemet grid perfectly aligned, "
+            "where they overlap a glowing golden triangle with an open apex appears at the exact center of both, "
+            "the triangle is not drawn on either city plan — it emerges from the overlap itself, "
+            "Symbolic Lens purple-gold glow radiating from the overlapping region, "
+            "archive document aesthetic, papyrus texture, the triangle is the message"
+        ),
+    },
+    {
+        "id": "i03_p7_triangle",
+        "path": "Assets/Art/Panels/Issue03/p03_p7_triangle.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "three ancient cities seen simultaneously in a single panel like a triptych: "
+            "Sumer on the left (ziggurat skyline), Kemet in the center (sphinx and pylons), "
+            "a third coastal city of concentric rings on the right, "
+            "a large glowing triangle symbol connects the three cities at their centers, "
+            "Symbolic Lens active: the triangle floats above all three cities simultaneously, "
+            "no label, no caption, just the shape above three civilisations"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 04 — "The Architect Thread"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i04_p1_architect",
+        "path": "Assets/Art/Panels/Issue04/p04_p1_architect.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a scriptorium workshop interior lit by golden lamplight and glowing diagrams, "
+            "vast scrolls and papyrus blueprints cover every surface showing city plans, star maps, sacred geometry, "
+            "a single cloaked figure stands at the center with back turned, facing the largest blueprint on the wall, "
+            "the Architect: anonymous, their robe ancient Egyptian linen with gold trim, "
+            "the blueprint on the wall extends beyond the frame in every direction, impossibly massive, "
+            "the figure's presence fills the room with focused authority, translator not inventor"
+        ),
+    },
+    {
+        "id": "i04_p2_starmap",
+        "path": "Assets/Art/Panels/Issue04/p04_p2_correspondence.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "two panels composited as one: upper half shows the night sky at 2500 BCE with Orion's Belt "
+            "and Thuban as pole star marked with golden constellation lines, "
+            "lower half shows the aerial view of the Giza plateau survey grid perfectly mirroring the star positions above, "
+            "the C3 Correspondence: sky and ground as identical maps of each other, "
+            "three star positions match three structure positions exactly, "
+            "the dividing line between sky and ground shimmers gold, As above so below rendered as engineering fact"
+        ),
+    },
+    {
+        "id": "i04_p6_alllenses",
+        "path": "Assets/Art/Panels/Issue04/p04_p6_alllenses.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "a full-page portrait splash showing all five lens symbols radiating from a central sacred geometry mandala, "
+            "Mythic gold at the top, Technologic cyan to the upper right, Symbolic purple to lower right, "
+            "Political crimson to lower left, Spiritual emerald to upper left, "
+            "each lens symbol distinct and glowing with its characteristic color, "
+            "the five colors merge at the sacred geometry center into pure white light, "
+            "the Architect's blueprint visible beneath all five layers simultaneously, "
+            "all five interpretations of reality active simultaneously for the first time"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 05 — "The Break"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i05_p1_wall",
+        "path": "Assets/Art/Panels/Issue05/p05_p1_wall.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a massive ancient Egyptian stone wall filled with hieroglyphic inscriptions, "
+            "but systematically defaced: rectangular sections chiseled away with precision and care, "
+            "not vandalism — this is policy, each removed glyph carefully targeted, "
+            "ghosted outlines remain pressed into the stone where glyphs once existed, "
+            "chisel marks are methodical and overlapping, a removal program not a rage, "
+            "Political Lens crimson light illuminates the systematic erasure pattern, "
+            "the absences are as telling as what remains"
+        ),
+    },
+    {
+        "id": "i05_p2_scribe",
+        "path": "Assets/Art/Panels/Issue05/p05_p2_scribeA.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "a group of Scribe faction figures in ancient Egyptian administrative robes standing before a glyph wall, "
+            "their faces are deliberately blank — no features, no identity, only institutional authority, "
+            "each figure holds a chisel and administrative scroll in ritual position, "
+            "they are a process not a people, perfectly uniform, completely deliberate, "
+            "Political Lens renders them in bureaucratic crimson silhouette, "
+            "the wall behind them shows the removal orders being executed, an institution erasing itself into power"
+        ),
+    },
+    {
+        "id": "i05_p4_identity",
+        "path": "Assets/Art/Panels/Issue05/p05_p4_figure1.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "two panels side by side as one image: on the left an Egyptian pharaoh figure in full royal regalia with crown and crook, "
+            "on the right the same face in travel-worn linen clothes walking away through desert, "
+            "both figures carrying or having carried the same rectangular object wrapped in cloth, "
+            "the face clearly identical in both panels despite different contexts, "
+            "a lone rectangular void visible in the space between the two panels — the carried object's shadow, "
+            "Mythic golden light on royal figure, Spiritual emerald light on the exile, Political lens red around the seam between them"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 06 — "Mirror Site"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i06_p1_grid",
+        "path": "Assets/Art/Panels/Issue06/p06_p1_grid.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "aerial overhead view of the Giza plateau city grid, "
+            "a large geometric compass rose overlaid on the grid showing true north as one direction "
+            "but all the major structures clearly offset by exactly 15.5 degrees from it, "
+            "the 15.5 degree angle marked with a glowing golden measurement line, "
+            "Technologic Lens teal-blue overlays show the angle is consistent across every major axis, "
+            "inset in the corner: the star Thuban with the same 15.5 degree offset marker, "
+            "this is not accident — this is astronomical precision made into architecture"
+        ),
+    },
+    {
+        "id": "i06_p3_mirrorcity",
+        "path": "Assets/Art/Panels/Issue06/p06_p3_mirrorcity.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "two mirror-image city plans reflected perfectly across a central axis — the Nile river, "
+            "above the Nile: the documented Giza plateau city with its primary structures, "
+            "below the Nile: the mirror city implied by the above-ground geometry, its foundations just visible, "
+            "Symbolic Lens purple overlay shows six alignment pairs connecting above and below, "
+            "the reflection is not visual symmetry — it is constructed symmetry, built into the architecture, "
+            "C4 Mirror-City complete: the puzzle solved, the axis glowing gold where sky meets water"
+        ),
+    },
+    {
+        "id": "i06_p6_pyramid",
+        "path": "Assets/Art/Panels/Issue06/p06_p6_pyramid.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "portrait orientation: a vast dark plain at dusk, a single enormous shape on the horizon, "
+            "the shape is a pyramid — but completely without label, without caption, without confirmation, "
+            "just a silhouette, precisely triangular, on the exact horizon line, "
+            "the viewer has been looking at it this whole time without knowing its name, "
+            "overwhelming in scale, inevitable in presence, "
+            "no glow, no magic, just the ancient shape against fading amber sky, "
+            "the most significant thing in every scene the player has been in — finally visible"
+        ),
+    },
+
+    # ════════════════════════════════════════════════════════════════════════
+    # ISSUE 07 — "The Vault"  (flagship panels)
+    # ════════════════════════════════════════════════════════════════════════
+
+    {
+        "id": "i07_p1_passage",
+        "path": "Assets/Art/Panels/Issue07/p07_p1_passage.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "interior of a narrow descending stone passage inside an ancient structure, "
+            "the passage walls are perfectly smooth polished limestone, the angle of descent is unmistakably precise, "
+            "a shaft of light from above illuminates the passage at a specific angle — not sunlight, engineered light, "
+            "the passage geometry changes subtly as it descends, each section a different deliberate specification, "
+            "Technologic Lens teal measurements float along the walls showing the angles and tolerances, "
+            "the camera looks down the passage toward darkness and something vast below, intimate and ancient"
+        ),
+    },
+    {
+        "id": "i07_p2_labyrinth",
+        "path": "Assets/Art/Panels/Issue07/p07_p2_labyrinth.png",
+        "category": "panels",
+        "size": "1024x1792",
+        "prompt": _p(
+            "full portrait diagram cross-section of an ancient shaft system rendered as an interactive panel: "
+            "a complex labyrinthine network of ascending and descending shafts shown in deep-cut stone, "
+            "a micro-camera POV path traced in gold showing the correct route through the labyrinth, "
+            "junction markers in Symbolic purple at each decision point, "
+            "Technologic teal measurements showing shaft angles pointing to specific stars above, "
+            "an alternate shaft branching to a dead-end chamber on one side, "
+            "a hidden chamber visible off the main path containing a closed diagram, "
+            "the center of the labyrinth radiates warm golden light — the destination, not yet reached"
+        ),
+    },
+    {
+        "id": "i07_p4_ark",
+        "path": "Assets/Art/Panels/Issue07/p07_p4_ark.png",
+        "category": "panels",
+        "size": "1024x1024",
+        "prompt": _p(
+            "the Ark of the Covenant revealed in the central chamber under combined Spiritual and Technologic lens light: "
+            "a golden rectangular chest with two horizontal carrying poles on each side, "
+            "two winged figures — cherubim — face each other on the golden lid with wings touching above, "
+            "golden light from within the Ark itself illuminates the chamber from below, "
+            "Spiritual emerald glow outlines its divine significance, "
+            "Technologic teal measurements float around it showing precise specifications, "
+            "the void in the stone platform below it perfectly shaped to receive it, "
+            "the Ark is complete except for the single missing carrying pole — its ghost-outline on the chamber floor"
         ),
     },
 ]

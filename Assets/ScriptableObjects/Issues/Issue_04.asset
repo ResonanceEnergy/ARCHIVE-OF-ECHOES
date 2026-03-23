@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a334761ea3b14d8a1cdd22f402639, type: 3}
+  m_Name: Issue_04
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.IssueData
+  issueId: issue_04
+  issueNumber: 4
+  title: The Architect Thread
+  arc: "T3 \u2014 The Blueprint Beneath"
+  pages:
+  - {fileID: 11400000, guid: 3e6bc4c2b9019354999aa4dc6c70fde0, type: 2}
+  - {fileID: 11400000, guid: 55563180762d6a84da3142c445b92fca, type: 2}
+  - {fileID: 11400000, guid: ce19c72c3d6120c4894aafe66e9a096a, type: 2}
+  - {fileID: 11400000, guid: 9120f75730597c14ea028d338b638286, type: 2}
+  - {fileID: 11400000, guid: 296034f3cd155264fb7d34e1fa0ceb74, type: 2}
+  - {fileID: 11400000, guid: 267897089552f0848ab98557c92c7846, type: 2}
+  - {fileID: 11400000, guid: aae1d2d63de86054e9d9861da8ccc430, type: 2}
+  - {fileID: 11400000, guid: 1b8283c3d08ff634686a1d6c521617f4, type: 2}
+  coverArt: {fileID: 0}
+  prerequisiteIssueIds:
+  - issue_03
+  unlocksLenses: 0300000004000000
+  unlocksKeys: []
+  ambientTrack: {fileID: 0}

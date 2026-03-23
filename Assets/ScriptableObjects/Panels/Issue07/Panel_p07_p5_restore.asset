@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db70f456e14b36e46beb08816b147784, type: 3}
+  m_Name: Panel_p07_p5_restore
+  m_EditorClassIdentifier: Assembly-CSharp::ArchiveOfEchoes.PanelData
+  panelId: p07_p5_restore
+  panelType: 3
+  panelArtwork: {fileID: 0}
+  corruptedOverlay: {fileID: 0}
+  lensVariants: []
+  captionText: The cross-section diagram from the hidden shaft chamber. Eight line
+    segments faded. Trace each to restore it.
+  archivistNote: 'B2 Ink Restore: 8 line segments. Symbolic Lens eases figure outlines.
+    Technologic Lens eases structural outlines. Full diagram in Archive Notebook
+    on completion.'
+  gutterText: The Architect's blueprint included this object. The grid included its
+    place.
+  startsCorrupted: 0
+  corruptionLevel: 0
+  puzzleConfig:
+    puzzleType: 0
+    stabilizeDuration: 2
+    reorderPanelCount: 4
+    isOptional: 0
+  isBranchPoint: 0
+  branchOptions: []
+  revealsKeys:
+  - {fileID: 11400000, guid: a22a3c4b89f62ef43bd5f0d2a906d3b2, type: 2}
+  requiresDualLens: 0
+  requiredLensA: 0
+  requiredLensB: 0
