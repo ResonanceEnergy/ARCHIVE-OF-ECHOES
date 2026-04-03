@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEditor;
+using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -105,6 +106,108 @@ namespace ArchiveOfEchoes.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Debug.Log("[Archive] BatchBuildAll — complete ✅");
+        }
+
+        /// <summary>
+        /// Full iOS export: runs BatchBuildAll then calls BuildPipeline.BuildPlayer
+        /// to produce an Xcode project in Builds/iOS/.
+        /// Called by build_ios.py via -batchmode -executeMethod.
+        /// </summary>
+        public static void BatchBuildIos()
+        {
+            Debug.Log("[Archive] BatchBuildIos — preparing data...");
+            BatchBuildAll();
+
+            string projectRoot = Path.GetFullPath(
+                Path.Combine(Application.dataPath, ".."));
+            string outputPath = Path.Combine(projectRoot, "Builds", "iOS");
+
+            Directory.CreateDirectory(outputPath);
+
+            var scenes = new[]
+            {
+                "Assets/Scenes/Title.unity",
+                "Assets/Scenes/Frame2100.unity",
+                "Assets/Scenes/ComicReader.unity",
+                "Assets/Scenes/IssueComplete.unity",
+            };
+
+            var options = new BuildPlayerOptions
+            {
+                scenes          = scenes,
+                locationPathName = outputPath,
+                target          = BuildTarget.iOS,
+                options         = BuildOptions.None,
+            };
+
+            Debug.Log($"[Archive] BatchBuildIos — exporting Xcode project → {outputPath}");
+            BuildReport  report  = BuildPipeline.BuildPlayer(options);
+            BuildSummary summary = report.summary;
+
+            if (summary.result == BuildResult.Succeeded)
+            {
+                long mb = (long)(summary.totalSize / 1024 / 1024);
+                Debug.Log($"[Archive] iOS export succeeded ✅  ({mb} MB)");
+            }
+            else
+            {
+                Debug.LogError($"[Archive] iOS export FAILED ❌  result={summary.result}  errors={summary.totalErrors}");
+                EditorApplication.Exit(1);
+            }
+        }
+
+        /// <summary>
+        /// iOS Simulator export: same as BatchBuildIos but targets the iOS Simulator SDK.
+        /// Produces Builds/iOSSim/ — use for xcrun simctl install + launch.
+        /// Called by build_ios.py via -batchmode -executeMethod.
+        /// </summary>
+        public static void BatchBuildIosSimulator()
+        {
+            Debug.Log("[Archive] BatchBuildIosSimulator — preparing data...");
+            BatchBuildAll();
+
+            string projectRoot = Path.GetFullPath(
+                Path.Combine(Application.dataPath, ".."));
+            string outputPath = Path.Combine(projectRoot, "Builds", "iOSSim");
+
+            Directory.CreateDirectory(outputPath);
+
+            // Switch to Simulator SDK for this build, then restore.
+            iOSSdkVersion prevSdk = PlayerSettings.iOS.sdkVersion;
+            PlayerSettings.iOS.sdkVersion = iOSSdkVersion.SimulatorSDK;
+
+            var scenes = new[]
+            {
+                "Assets/Scenes/Title.unity",
+                "Assets/Scenes/Frame2100.unity",
+                "Assets/Scenes/ComicReader.unity",
+                "Assets/Scenes/IssueComplete.unity",
+            };
+
+            var options = new BuildPlayerOptions
+            {
+                scenes           = scenes,
+                locationPathName = outputPath,
+                target           = BuildTarget.iOS,
+                options          = BuildOptions.None,
+            };
+
+            Debug.Log($"[Archive] BatchBuildIosSimulator — exporting Xcode project → {outputPath}");
+            BuildReport  report  = BuildPipeline.BuildPlayer(options);
+            BuildSummary summary = report.summary;
+
+            PlayerSettings.iOS.sdkVersion = prevSdk;
+
+            if (summary.result == BuildResult.Succeeded)
+            {
+                long mb = (long)(summary.totalSize / 1024 / 1024);
+                Debug.Log($"[Archive] iOS Simulator export succeeded ✅  ({mb} MB)");
+            }
+            else
+            {
+                Debug.LogError($"[Archive] iOS Simulator export FAILED ❌  result={summary.result}  errors={summary.totalErrors}");
+                EditorApplication.Exit(1);
+            }
         }
 
         // ── Folder structure ──────────────────────────────────────────────────────
