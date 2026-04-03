@@ -55,7 +55,7 @@ namespace ArchiveOfEchoes
             StartCoroutine(PlaySequence());
 
             continueButton.onClick.AddListener(OnContinue);
-            notebookButton.onClick.AddListener(() => FindObjectOfType<ArchiveNotebook>()?.ToggleOpen());
+            notebookButton.onClick.AddListener(() => FindAnyObjectByType<ArchiveNotebook>(FindObjectsInactive.Exclude)?.ToggleOpen());
 
             lensUnlockBanner.alpha = 0f;
         }

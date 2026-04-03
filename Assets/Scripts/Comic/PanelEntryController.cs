@@ -66,7 +66,7 @@ namespace ArchiveOfEchoes
         {
             // Returns the first Interact-type panel in the current page.
             // A more precise version would raycast to the touch midpoint.
-            foreach (var p in FindObjectsOfType<PanelRenderer>())
+            foreach (var p in FindObjectsByType<PanelRenderer>(FindObjectsInactive.Exclude))
                 if (p.Data.panelType == PanelType.Interact) return p;
             return null;
         }

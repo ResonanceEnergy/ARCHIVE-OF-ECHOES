@@ -79,9 +79,14 @@ namespace ArchiveOfEchoes.Editor
 
         private static bool AssignSprite(string assetId, Sprite sprite)
         {
-            // Panel: p00_* or p01_*
+            // Panel — Issue 00/01 short prefix: p00_*, p01_*
             if (assetId.StartsWith("p00_") || assetId.StartsWith("p01_"))
                 return AssignPanelSprite(assetId, sprite);
+
+            // Panel — Issue 02-12 long prefix: i02_*, i03_*, … i12_*
+            // Pattern: i{NN}_p{page}_{name}
+            if (assetId.Length >= 4 && assetId[0] == 'i' && char.IsDigit(assetId[1]) && char.IsDigit(assetId[2]) && assetId[3] == '_')
+                return AssignIssuePanelSprite(assetId, sprite);
 
             // Lens icon: lens_mythic → Lens_Mythic.asset
             if (assetId.StartsWith("lens_"))
@@ -138,6 +143,39 @@ namespace ArchiveOfEchoes.Editor
         }
 
         // ── Lens ──────────────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Routes i{NN}_* art IDs (Issues 02–12) to their PanelData SO.
+        /// Pattern: i02_p3_edin → Assets/ScriptableObjects/Panels/Issue02/i02_p3_edin.asset
+        /// Logs at Debug level (not Warning) when the SO does not yet exist —
+        /// these are expected for issues whose data isn't yet built.
+        /// </summary>
+        private static bool AssignIssuePanelSprite(string assetId, Sprite sprite)
+        {
+            // Extract the two-digit issue number from "i{NN}_..."
+            string issueNumStr  = assetId.Substring(1, 2);   // "02", "03", …
+            string issueFolder  = $"Issue{issueNumStr}";
+            string soPath       = $"Assets/ScriptableObjects/Panels/{issueFolder}/{assetId}.asset";
+
+            var panel = AssetDatabase.LoadAssetAtPath<PanelData>(soPath);
+            if (panel == null)
+            {
+                // Not a warning — SOs for later issues are built on demand.
+                Debug.Log($"[ArtImporter] {assetId}: no SO at {soPath} (skipped).");
+                return false;
+            }
+
+            var so = new SerializedObject(panel);
+            SetObjectRef(so, "panelArtwork", sprite);
+
+            if (assetId.EndsWith("_corrupted"))
+                SetObjectRef(so, "corruptedOverlay", sprite);
+
+            so.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(panel);
+            Debug.Log($"[ArtImporter] ✓ Panel {assetId}");
+            return true;
+        }
 
         private static bool AssignLens(string assetId, Sprite sprite)
         {

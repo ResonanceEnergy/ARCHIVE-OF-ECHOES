@@ -82,7 +82,7 @@ namespace ArchiveOfEchoes
             float scale = settings.fontSizeMultiplier;
             if (Mathf.Approximately(scale, 1f)) return;
 
-            foreach (var tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None))
+            foreach (var tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Exclude))
                 tmp.fontSize *= scale;
         }
 
@@ -103,10 +103,10 @@ namespace ArchiveOfEchoes
 
         private static void SetColorTheme(Color bg, Color fg)
         {
-            foreach (var img in FindObjectsByType<Image>(FindObjectsSortMode.None))
+            foreach (var img in FindObjectsByType<Image>(FindObjectsInactive.Exclude))
                 if (img.CompareTag("UIBackground")) img.color = bg;
 
-            foreach (var tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None))
+            foreach (var tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Exclude))
                 tmp.color = fg;
         }
     }

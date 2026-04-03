@@ -41,6 +41,9 @@ namespace ArchiveOfEchoes.Editor
             { "sfx_t5_unlock",                "t5UnlockClip" },
             { "sfx_djed_bar_activated",       "djedBarActivatedClip" },
             { "sfx_circuit_close",            "circuitCloseClip" },
+            { "sfx_paper_rustle",             "paperRustleClip" },
+            { "sfx_capstone_placed",          "capstonePlacedClip" },
+            { "sfx_finale_chord",             "finaleChordClip" },
         };
 
         // ── Drone id → Lens SO name (Lens_{lensName}.asset) ──────────────────────

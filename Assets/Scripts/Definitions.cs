@@ -98,13 +98,7 @@ namespace ArchiveOfEchoes
         public static void Play(HapticFeedback feedback)
         {
 #if UNITY_IOS && !UNITY_EDITOR
-            var type = feedback switch
-            {
-                HapticFeedback.ImpactLight  => UnityEngine.iOS.ImpactFeedbackStyle.Light,
-                HapticFeedback.ImpactHeavy  => UnityEngine.iOS.ImpactFeedbackStyle.Heavy,
-                _                           => UnityEngine.iOS.ImpactFeedbackStyle.Medium
-            };
-            UnityEngine.iOS.HapticFeedback.Generate(type);
+            UnityEngine.Handheld.Vibrate();
 #endif
         }
     }

@@ -447,3 +447,6 @@ MonoBehaviour:
   t5UnlockClip: {fileID: 8300000, guid: 8249add6ab284ae8957a86f350902c76, type: 3}
   djedBarActivatedClip: {fileID: 8300000, guid: 227c0cab1b394ed7a8d674301dc47847, type: 3}
   circuitCloseClip: {fileID: 8300000, guid: ea68c9a80d434b16a5cc657c13572dc3, type: 3}
+  paperRustleClip: {fileID: 8300000, guid: 215298e0fd7b4e4fb9c1be8e3c595bbf, type: 3}
+  capstonePlacedClip: {fileID: 8300000, guid: 2f39dcf6b2c84a2989449e683643e828, type: 3}
+  finaleChordClip: {fileID: 8300000, guid: a5a8a699f1de4a8fa4103c58dd7ff103, type: 3}

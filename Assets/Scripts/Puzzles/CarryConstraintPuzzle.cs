@@ -37,7 +37,6 @@ namespace ArchiveOfEchoes
         private float _distanceTravelled;
         private float _trembleTimer;
         private bool  _trembling;
-        private bool  _carrying;
 
         private void OnEnable()
         {
@@ -54,8 +53,6 @@ namespace ArchiveOfEchoes
 
         private void HandleTwoFingerDrag(Vector2 midpoint, Vector2 frameDelta)
         {
-            _carrying = true;
-
             // Estimate tilt from finger positions (delegate to input manager)
             float tiltAngle = TouchInputManager.Instance.TwoFingerTiltAngle;
 
@@ -105,7 +102,6 @@ namespace ArchiveOfEchoes
             _distanceTravelled = 0;
             _trembleTimer      = 0;
             _trembling         = false;
-            _carrying          = false;
 
             if (arkContainer)
                 arkContainer.anchoredPosition = Vector2.zero;
@@ -119,7 +115,6 @@ namespace ArchiveOfEchoes
 
         private IEnumerator ArrivalSequence()
         {
-            _carrying = false;
             AudioManager.Instance?.PlayMotif(MotifType.KnowledgeKeyCollected);
             Haptic.Play(HapticFeedback.ImpactHeavy);
             yield return new WaitForSeconds(0.3f);
