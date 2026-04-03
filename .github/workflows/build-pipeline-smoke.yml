@@ -1,0 +1,27 @@
+name: Build Pipeline Smoke
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  pipeline-smoke:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check build script
+        run: python3 -m py_compile build_ios.py
+
+      - name: Build script help text
+        run: python3 build_ios.py --help
+
+      - name: Makefile help target
+        run: make help-build

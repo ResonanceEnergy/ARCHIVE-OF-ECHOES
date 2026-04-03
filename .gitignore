@@ -68,6 +68,10 @@ __pycache__/
 
 # Pipeline logs
 pipeline_*.log
+build_ios_*.log
+
+# VS Code local workspace files
+.vscode/*.log
 
 # OS
 .DS_Store
